@@ -1,6 +1,6 @@
 ### Overview
-    - Music editor with a keyboard
-    - Create songs and play back sections of the song with the keyboard
+- Music editor with a keyboard
+- Create songs and play back sections of the song with the keyboard
     
 ### Module List
 - Sound module
@@ -68,3 +68,21 @@
     - contains loop/note manager
     - new notes/loops are propegated up controller to managers to compile sequential note ordering
     - contains beat/midi instrument
+- Key Event module
+    - only 1 in application
+    - emit keyboard events
+    - emit special/misc key events
+- Mouse Event module
+    - only 1 in application
+    - emit mouse events
+- File Browser module
+    - load all mp3 files for user
+    - folder structure?
+    - drag files to sound container
+
+
+- Editor Container
+    - contains soundpack[]
+    - contains key event
+    - contains mouse event
+    - controls playback/record
