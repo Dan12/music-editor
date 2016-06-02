@@ -1,0 +1,34 @@
+### Overview
+    - Music editor with a keyboard
+    - Create songs and play back sections of the song with the keyboard
+    
+### Module List
+- Sound module
+    - 1 single mp3/wav/...
+    - Depends on howler.js
+    - play, stop
+- Sound container module
+    - contains sound[]
+    - looped, quaternize, hold to play
+    - pitch change (multiple sounds)
+    - reset pitch change?
+- Sound manager module
+    - contains sound container
+    - keycode?, sound container actions
+    - grouped sound containers, only play 1 at a time
+- Beat manager module
+    - keeps time/beat
+    - can change beat
+    - only 1 in application
+- Note module
+    - key/action (beat change, soundpack change)
+    - length, start time/beat
+    - emits events
+- Loop module
+    - contains ordered note[]
+    - length, start time/beat
+    - activates notes
+- Note manager module OR loop manager module
+    - contains ordered note[] of all notes in all loops OR loop[]
+    - balanced bst? need to find way to efficiently squash for constant time lookup
+    - OR handles organization of loop[]
