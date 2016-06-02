@@ -26,9 +26,45 @@
     - emits events
 - Loop module
     - contains ordered note[]
-    - length, start time/beat
+    - length, start time/beat, loop amount
     - activates notes
 - Note manager module OR loop manager module
     - contains ordered note[] of all notes in all loops OR loop[]
     - balanced bst? need to find way to efficiently squash for constant time lookup
     - OR handles organization of loop[]
+- Keyboard display module
+    - draws keyboard
+    - key activated/not
+    - set key color
+- Layout module
+    - turns keycode int array index
+    - multiple browser support
+- Color Effect module
+    - color pattern to be executed over a certain number of beats
+    - emits events to control module
+- Color Effects manager module
+    - contains color effect[]
+    - start color effect
+    - recieve events and pass on to control module
+- Midi instrument module
+    - contains color effects manager
+    - contains keyboard display and handles no color effects on keyboard
+    - contains sound manager[]
+    - contains layout
+    - activates key and color effect
+    - assigned soundpack?
+- Beat instrument module
+    - contains keyboard display and takes care of beat instrument display
+    - handles row stop events
+    - contains sound manager[]
+    - contains layout
+    - assigned soundpack?
+- Track module
+    - contains loop[]
+    - only 1 loop at any point in time
+    - different loops?
+- Soundpack module
+    - Contains track[]
+    - contains loop/note manager
+    - new notes/loops are propegated up controller to managers to compile sequential note ordering
+    - contains beat/midi instrument
