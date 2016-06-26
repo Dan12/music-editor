@@ -1,7 +1,12 @@
 ### Overview
 - Music editor with a keyboard
 - Create songs and play back sections of the song with the keyboard
-    
+   
+### Documentation
+- http://yui.github.io/yuidoc/
+
+### Using Typescript
+ 
 ### Module List
 - Sound module
     - 1 single mp3/wav/...

@@ -6,3 +6,7 @@ canvas{
     border: 1px solid black;
     display: inline;
 }
+
+#test_area{
+    display: inline;
+}

@@ -4,13 +4,20 @@
         <title></title>
         
         <link rel="stylesheet" href="styles.css" type="text/css" />
-        
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous" async></script>
-        
-        <script type="text/javascript" src="Main.js" async></script>
     </head>
     <body>
         <canvas id="main_canvas" width=600 height=600>The canvas element is not supported on your browser</canvas>
-        <canvas id="test_canvas" width=600 height=600></canvas>
+        <div id="test_area">
+            <canvas id="test_canvas" width=600 height=600></canvas>
+        </div>
+        
+        
+        <!--scripts-->
+        <script type="text/javascript" src="lib/libraries/howler.min.js"></script>
+        <script type="text/javascript" src="lib/libraries/jquery.min.js"></script>
+        
+        <!--testing-->
+        <script type="text/javascript" src="lib/testMain.js"></script>
+        <script type="text/javascript" src="lib/testAudio.js"></script>
     </body>
 </html>
