@@ -13,3 +13,7 @@ interface HTMLElement{
 interface DOMException{
     err?: any
 }
+
+interface DecodeErrorCallback {
+    (e?: DOMException): void;
+}
