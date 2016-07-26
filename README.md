@@ -6,6 +6,8 @@
 - http://yui.github.io/yuidoc/
 
 ### Using Typescript
+
+### Autosave songs in case of crash and caputre meta+s key for save
  
 ### Module List
 - Sound module
