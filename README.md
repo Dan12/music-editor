@@ -7,6 +7,13 @@
 
 ### Using Typescript
 
+### GUI
+- Use a canvas/html hybrid application
+	- html for navs and menus
+	- canvas for waveform rendering
+	- no stylesheet, all locally styled, should be fine if oop is implemented correctly
+- all canvas with [Zebkit](http://www.zebkit.com/), might not all be be on same canvas and learning curve
+
 ### Autosave songs in case of crash and caputre meta+s key for save
 
 ### Tricky this
