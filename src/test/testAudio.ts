@@ -1,14 +1,12 @@
-import { getAudio }  from "./testGetAudio";
-import { callbackFunction } from "./testCallback"
+import { getAudio }  from './testGetAudio';
+import { callbackFunction } from './testCallback';
 
-export function testAudio(){
-    
+export function testAudio() {
+
     let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    
-    console.log(testFileName)
+
+    console.log(testFileName);
     getAudio(audioCtx, testFileName, callbackFunction);
-    
+
     console.log(someOtherValue);
-
-
 }

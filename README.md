@@ -1,12 +1,56 @@
 ### Overview
 - Music editor with a keyboard
 - Create songs and play back sections of the song with the keyboard
-   
+
 ### Documentation
-- http://yui.github.io/yuidoc/
+- [YUIDoc](http://yui.github.io/yuidoc/)
 
 ### Using Typescript
- 
+
+### Tricky this
+- [This and intance methods](http://blog.johnnyreilly.com/2014/04/typescript-instance-methods.html)
+
+### Module system
+- Interact container
+	- Links to objects above and below it in chain (like doubly(maybe, might only need singly) linked list with multiple possible branches)
+	- Heirarchical event flow
+		- recieves events from objects higher up the chain
+		- does a bit of logic and may or may not pass event down the chain
+		- mouse events and key events
+		- all draw calls, have visibility logic take place here (access variables from logic layer)
+	- Direct event endpoints
+		- may do a bit of logic or directly call method in Logic layer
+		- like 'play button pressed' event
+	- Logic layer
+		- All variables
+		- Emits events
+		- May depend upon utility modules if logic must be split over multiple files
+	- Draw layer
+		- all draw code
+		- accesses logic layer for variables relating to draw code
+- Standalone Container
+	- Direct event endpoints
+	- Logic layer
+- Event manager
+	- all events get registered/created through this object
+	- all events must be registered prior to first render
+	- throws error if event is created and that event name already exists
+	- throws error if event is registered that is not created
+	- throws error if event is fired during application runtime that is not registered
+	- throw warning if event is created but never registered
+
+### Files
+- [some_object]_interact.ts
+	- init (creator_object)
+		- call initializers for objects that this is the container for in the heirarchy
+		- initialize Draw layer object
+		- initialize Logic layer object
+		- Register all events and
+	-
+- [some_object]_draw.ts
+    -
+- [some_object]_logic.ts
+
 ### Module List
 - Sound module
     - 1 single mp3/wav/...
@@ -91,3 +135,5 @@
     - contains key event
     - contains mouse event
     - controls playback/record
+- Chat system
+    - users can chat with each other

@@ -1,0 +1,1 @@
+rm ./lib/test/*.js.map
