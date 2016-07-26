@@ -21,6 +21,20 @@
 - recieve audio buffer and return a new audio buffer with effect modifications
 - needs to have a history, undo command needed and needs to be figured out
 
+### Backend
+- authenticated through google
+- use [Passport](http://passportjs.org/docs/google)
+- Nodejs backend
+- build frontend app first with simulated backend api communication (i.e. have mock backend api response hard coded into js)
+
+### Data storage
+- sounds stored on dropbox
+- combine java and js tool to allow users to quickly cut up sound files and integrate into dropbox
+- java tool, make in browser tool using js and gui to click on launchpad part (i.e. sound file is for c13, have user click instead of renaming)
+- future feature: auto remap from launchpad to keyboard
+- file loader, base url to shared dropbox folder, import all files
+- song config file (structure to be determined), store in db
+
 ### Module system
 - Interact container
 	- Links to objects above and below it in chain (like doubly(maybe, might only need singly) linked list with multiple possible branches)
