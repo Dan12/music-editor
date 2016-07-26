@@ -16,6 +16,11 @@
 - define default returns that will always be able to be handled by the rest of the application (tests)
 - only expose formated data from APIs, have an agreed upon return so that if the api changes, only the method of parsing has to change
 
+### Audio Effects
+- effects need to be treated as plugins
+- recieve audio buffer and return a new audio buffer with effect modifications
+- needs to have a history, undo command needed and needs to be figured out
+
 ### Module system
 - Interact container
 	- Links to objects above and below it in chain (like doubly(maybe, might only need singly) linked list with multiple possible branches)
