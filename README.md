@@ -12,6 +12,10 @@
 ### Tricky this
 - [This and intance methods](http://blog.johnnyreilly.com/2014/04/typescript-instance-methods.html)
 
+### API methodology
+- define default returns that will always be able to be handled by the rest of the application (tests)
+- only expose formated data from APIs, have an agreed upon return so that if the api changes, only the method of parsing has to change
+
 ### Module system
 - Interact container
 	- Links to objects above and below it in chain (like doubly(maybe, might only need singly) linked list with multiple possible branches)
