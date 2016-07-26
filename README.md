@@ -7,7 +7,8 @@
 
 ### Using Typescript
 
-<<<<<<< HEAD
+### Autosave songs in case of crash and caputre meta+s key for save
+
 ### Tricky this
 - [This and intance methods](http://blog.johnnyreilly.com/2014/04/typescript-instance-methods.html)
 
@@ -47,15 +48,9 @@
 		- initialize Draw layer object
 		- initialize Logic layer object
 		- Register all events and
-	-
 - [some_object]_draw.ts
-    -
 - [some_object]_logic.ts
 
-=======
-### Autosave songs in case of crash and caputre meta+s key for save
- 
->>>>>>> 18a3be428796081b5f45d73282a86f649b024d7a
 ### Module List
 - Sound module
     - 1 single mp3/wav/...
@@ -140,8 +135,5 @@
     - contains key event
     - contains mouse event
     - controls playback/record
-<<<<<<< HEAD
 - Chat system
     - users can chat with each other
-=======
->>>>>>> 18a3be428796081b5f45d73282a86f649b024d7a
