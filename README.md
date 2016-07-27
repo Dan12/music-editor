@@ -1,11 +1,29 @@
 ### Overview
 - Music editor with a keyboard
 - Create songs and play back sections of the song with the keyboard
+- built with typescript
+
+### Getting started
+- open terminal, navigate to the root directory, and type the following commands:
+	- [sudo] npm install -g tslint typescript yuidocjs
+	- python -m SimpleHTTPServer 8080
+- go ta a web browser and type localhost:8080
+
+### Linting
+- [TSLint](http://palantir.github.io/tslint/)
+- [Rules](http://palantir.github.io/tslint/rules/)
+- Getting started
+	- open a new terminal window and type one of the following commands
+		- apm install linter-tslint
+			- tslint now installed for atom
+		- ./lint.sh
 
 ### Documentation
 - [YUIDoc](http://yui.github.io/yuidoc/)
-
-### Using Typescript
+- Getting started
+	- open a new terminal window and type the following command
+		- yuidoc --server .
+	- got to a web brower and type localhost:3000
 
 ### GUI
 - Use a canvas/html hybrid application

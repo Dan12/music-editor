@@ -10,7 +10,7 @@ class TestEventManager {
 
     // object registers an event that can be fired
     public register(eventClass: EditorEvent): void {
-        console.log('registering '+eventClass.getName())
+        console.log('registering ' + eventClass.getName());
         if (this.events[eventClass.getName()] === undefined)
             this.events[eventClass.getName()] = [];
         else

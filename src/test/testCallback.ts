@@ -18,6 +18,7 @@ export function callbackFunction(sound: AudioBufferSourceNode) {
     let c = document.getElementById('test_canvas');
     $('#test_area').append('<p>Mouse at: <b id="mouseLocation">0.00</b> seconds</p>');
     let ctx = c.getContext('2d');
+    ctx.lineWidth = 1;
     ctx.moveTo(0, 50);
 
     // pixels per sample

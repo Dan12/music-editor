@@ -10,7 +10,7 @@
             "spaces"
         ],
         "jsdoc-format": true,
-        "linebreak-style": [true, "LF"],
+        /*"linebreak-style": [true, "LF"],*/
         "no-consecutive-blank-lines": true,
         "no-duplicate-variable": true,
         "no-empty": true,
