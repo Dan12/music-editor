@@ -1,4 +1,4 @@
-import { TestInterface, TestObjEvent } from './TestEvent';
+import { TestInterface, TestObjEvent } from './test-event';
 // import { TestObjEvent } from './testObjEvent';
 
 export class TestSendToObject {

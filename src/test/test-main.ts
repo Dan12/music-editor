@@ -1,18 +1,18 @@
 // full jquery import here (not needed elsewhere)
 import * as $ from 'jquery';
 
-import './Event';
-import './testEventManager';
+import './event';
+import './test-event-manager';
 
 // import global varialbes into all modules
 import './testGlobals';
 
 // import test functions
-import { testAudio } from './testAudio';
-import { testUI } from './testJQ';
+import { testAudio } from './test-audio';
+import { testUI } from './test-jquery';
 
-import { TestObj1 } from './testObj1';
-import { TestSendToObject } from './testSendObject';
+import { TestObj1 } from './test-obj-1';
+import { TestSendToObject } from './test-send-object';
 
 $(document).ready(function(){
 

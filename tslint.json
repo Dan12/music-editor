@@ -20,7 +20,7 @@
         "no-unreachable": true,
         "no-unused-expression": true,
         "no-var-keyword": true,
-        "max-line-length": [true, 120],
+        "max-line-length": [true, 140],
         "one-line": [
             true,
             "check-open-brace",

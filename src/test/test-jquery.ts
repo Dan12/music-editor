@@ -1,4 +1,5 @@
-import { HowlSound } from './testSoundObject';
+import { HowlSound } from './test-sound-object';
+import { staticTests } from './static-tests';
 
 export function testUI() {
 
@@ -17,4 +18,6 @@ export function testUI() {
         someOtherValue++;
         console.log(someOtherValue);
     });
+
+    staticTests();
 }

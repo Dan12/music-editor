@@ -9,4 +9,4 @@ requirejs.config({
 });
 
 // load test file
-requirejs(['test/testMain']);
+requirejs(['test/test-main']);

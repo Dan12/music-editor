@@ -1,5 +1,5 @@
-import './Event';
-import { TestObjEvent } from './testEvent';
+import './event';
+import { TestObjEvent } from './test-event';
 
 export class TestObj1 {
     private num: number;
@@ -11,7 +11,7 @@ export class TestObj1 {
     }
 
     public sendMsg(): void {
-        eventManager.fireEvent(new TestObjEvent(null, {num: this.num, someString: 'a test string', testObj: this}));
+        eventManager.fireEvent(new TestObjEvent(null, {num: this.num, someString: 'a string', testObj: this}));
     }
 
     public getNum(): number {

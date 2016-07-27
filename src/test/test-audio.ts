@@ -1,5 +1,5 @@
-import { getAudio }  from './testGetAudio';
-import { callbackFunction } from './testCallback';
+import { getAudio }  from './test-get-audio';
+import { callbackFunction } from './test-callback';
 
 export function testAudio() {
 

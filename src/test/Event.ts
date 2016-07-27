@@ -46,6 +46,7 @@ abstract class EditorEvent {
     }
 
     /**
+     * Returns the payload for this event, may be null if not initialized
      * @method getPayload
      * @return {object} the payload for this event
      */

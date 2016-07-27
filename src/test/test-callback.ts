@@ -15,6 +15,9 @@ export function callbackFunction(sound: AudioBufferSourceNode) {
     let buffer1: Float32Array = audioBuffer.getChannelData(0);
     let buffer2: Float32Array = audioBuffer.getChannelData(1);
 
+    $('#test_area').append(
+        '<canvas id="test_canvas" width=400 height=400>The canvas element is not supported on your browser</canvas>'
+    );
     let c = document.getElementById('test_canvas');
     $('#test_area').append('<p>Mouse at: <b id="mouseLocation">0.00</b> seconds</p>');
     let ctx = c.getContext('2d');

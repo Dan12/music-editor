@@ -1,4 +1,4 @@
-import { TestObj1 } from './testObj1';
+import { TestObj1 } from './test-obj-1';
 
 export interface TestInterface {
     num: number;
