@@ -1,38 +1,46 @@
+/**
+ * This function uses an AudioContext to get the audio file specified by the filename
+ * @method getAudio
+ * @for test-main
+ * @param audioCtx {AudioContext} the web audio context for this project
+ * @param fileName {string} the name of the file, relative to the audio folder in the root of this project4
+ * @param callback {function} the callback function to be called with the audio data after the audio has been loaded
+ */
 export function getAudio(
-    audioCtx: AudioContext,
-    fileName: string,
-    callback: (sound: AudioBufferSourceNode) => void
+  audioCtx: AudioContext,
+  fileName: string,
+  callback: (sound: AudioBufferSourceNode) => void
 ): void {
 
-    let source: AudioBufferSourceNode = audioCtx.createBufferSource();
+  let source: AudioBufferSourceNode = audioCtx.createBufferSource();
 
-    let request = new XMLHttpRequest();
+  // create a new request
+  let request = new XMLHttpRequest();
+  request.open('GET', `audio/${fileName}`, true);
+  request.responseType = 'arraybuffer';
 
-    request.open('GET', `audio/${fileName}`, true);
+  // define the error function of type DecodeErrorCallback
+  let errorFunc: DecodeErrorCallback;
+  errorFunc = function(e?: DOMException): void {
+    console.log('Error with decoding audio data' + e.err);
+  };
 
-    request.responseType = 'arraybuffer';
+  request.onload = function(): void {
+    let audioData = request.response;
 
-    let errorFunc: DecodeErrorCallback;
-    errorFunc = function(e?: DOMException) {
-        console.log('Error with decoding audio data' + e.err);
-    };
+    audioCtx.decodeAudioData(audioData, function(buffer: AudioBuffer) {
+      source.buffer = buffer;
 
-    request.onload = function() {
-        let audioData = request.response;
+      source.connect(audioCtx.destination);
+      // source.loop = false;
+      // samplesPerSecond = buffer.sampleRate;
 
-        audioCtx.decodeAudioData(audioData, function(buffer: AudioBuffer) {
-            source.buffer = buffer;
+      callback(source);
+    },
 
-            source.connect(audioCtx.destination);
-            // source.loop = false;
-            // samplesPerSecond = buffer.sampleRate;
+    errorFunc);
 
-            callback(source);
-        },
+  };
 
-        errorFunc);
-
-    };
-
-    request.send();
+  request.send();
 }

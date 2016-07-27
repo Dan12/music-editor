@@ -1,12 +1,12 @@
 requirejs.config({
     // base url of source files
     baseUrl: 'lib',
-    // define libraries here
+    // library paths
     paths:{
         "jquery":'libraries/jquery.min',
         "howler":'libraries/howler.min'
     }
 });
 
-// load test file
+// load test file relative to the base url
 requirejs(['test/test-main']);

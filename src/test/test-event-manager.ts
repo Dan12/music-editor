@@ -1,46 +1,73 @@
-// no export to make global class
+/**
+ * The Test Event Manager class
+ * no export to make this a global class
+ * @class TestEventManager
+ * @static
+ */
 class TestEventManager {
+  /**
+   * The Object containing all registered events and event subscribers
+   * @property events
+   * @type object
+   * @default {}
+   */
+  static events: Object = {};
 
-    private events: Object;
+  // throw error if trying to create instance of class
+  constructor() {
+    throw new Error('Cannot create a new instance of this class');
+  }
 
-    // empty object of events
-    public constructor() {
-        this.events = {};
+  /**
+   * Registers a new event by setting a property in the {{#crossLink "TestEventManager/events:property"}}{{/crossLink}} object
+   * @method register
+   * @param eventClass {EditorEvent} the event to register
+   */
+  static register(eventClass: EditorEvent): void {
+    console.log('registering ' + eventClass.getName());
+    if (TestEventManager.events[eventClass.getName()] === undefined)
+      TestEventManager.events[eventClass.getName()] = [];
+    else
+      console.log('Error. this event already exists');
+  }
+
+  /**
+   * Subscribes an event callback to that event
+   * @method subscribe
+   * @param eventClass {EditorEvent} the event with the callback subscribed to this event
+   */
+  static subscribe(eventClass: EditorEvent): void {
+    if (TestEventManager.events[eventClass.getName()])
+      TestEventManager.events[eventClass.getName()].push(eventClass);
+    else
+      console.log('Error. event doesn\'t exist');
+  }
+
+  /**
+   * Fires the specified event with the payload defined in the event
+   * @method fireEvent
+   * @param eventClass {EditorEvent} the event with the payload to fire to all subscribers
+   */
+  static fireEvent(eventClass: EditorEvent): void {
+    if (TestEventManager.events[eventClass.getName()])
+      // iterate over all subscribers
+      for (let i = 0; i < TestEventManager.events[eventClass.getName()].length; i++)
+        TestEventManager.events[eventClass.getName()][i].eventFired(eventClass);
+    else
+      console.log('Error. called event wasn\'t registered');
+  }
+
+  /**
+   * Checks if all registered events have at least one subscriber
+   * log it to the console because this likely means there is an error somewhere
+   * @method checkEvents
+   */
+  static checkEvents() {
+    for (let name in TestEventManager.events) {
+      if (TestEventManager.events[name].length === 0)
+        console.log('Event ' + name + ' was registered but never subscribed to');
     }
-
-    // object registers an event that can be fired
-    public register(eventClass: EditorEvent): void {
-        console.log('registering ' + eventClass.getName());
-        if (this.events[eventClass.getName()] === undefined)
-            this.events[eventClass.getName()] = [];
-        else
-            console.log('Error. this event already exists');
-    }
-
-    // object subscribes to an event that can be fired
-    public subscribe(eventClass: EditorEvent): void {
-        if (this.events[eventClass.getName()])
-            this.events[eventClass.getName()].push(eventClass);
-        else
-            console.log('Error. event doesn\'t exist');
-    }
-
-    // an object fires the specified event
-    public fireEvent(eventClass: EditorEvent): void {
-        if (this.events[eventClass.getName()])
-            for (let i = 0; i < this.events[eventClass.getName()].length; i++)
-                this.events[eventClass.getName()][i].eventFired(eventClass);
-        else
-            console.log('Error. called event wasn\'t registered');
-    }
-
-    // check the current event list for any errors
-    public checkEvents() {
-        for (let name in this.events) {
-            if (this.events[name].length === 0)
-                console.log('Event ' + name + ' was registered but never subscribed to');
-        }
-        return true;
-    }
+    return true;
+  }
 
 }

@@ -1,23 +1,28 @@
 import { HowlSound } from './test-sound-object';
 import { staticTests } from './static-tests';
 
-export function testUI() {
+/**
+ * Test some ui stuff using jquery
+ * @method testUI
+ * @for test-main
+ */
+export function testUI(): void {
 
-    $('#test_area').append('<p id="stuff"></p>');
-    $('#test_area').append('<button id="clickMe">Click Me</button>');
-    $('#stuff').html('Lolz');
+  $('#test_area').append('<p id="stuff"></p>');
+  $('#test_area').append('<button id="clickMe">Click Me</button>');
+  $('#stuff').html('Lolz');
 
-    let sound: HowlSound = new HowlSound(`audio/${testFileName}`);
+  let sound: HowlSound = new HowlSound(`audio/${testFileName}`);
 
-    $('#clickMe').click(function(){
+  $('#clickMe').click(function(){
 
-        sound.toggle();
+    sound.toggle();
 
-        $('#stuff').toggle(300);
+    $('#stuff').toggle(300);
 
-        someOtherValue++;
-        console.log(someOtherValue);
-    });
+    someOtherValue++;
+    console.log(someOtherValue);
+  });
 
-    staticTests();
+  staticTests();
 }
