@@ -1,4 +1,4 @@
-import { TestObj1, TestObjEvent } from './testObj1';
+import { TestInterface, TestObjEvent } from './testObj1';
 // import { TestObjEvent } from './testObjEvent';
 
 export class TestSendToObject {
@@ -7,10 +7,11 @@ export class TestSendToObject {
         eventManager.subscribe(new TestObjEvent(this.callbackTest));
     }
 
-    private callbackTest(obj: TestObj1): void {
+    private callbackTest(obj: TestInterface): void {
         console.log('Callback object:');
         console.log(obj);
-        console.log(obj.getNum());
-        // console.log(obj.getName()); // property does not exist on type TestObj1
+        console.log(obj.num);
+        console.log(obj.testObj.getNum());
+        // console.log(obj.testObj.getName()); // Property 'getName' does not exist on type 'TestObj1'.
     }
 }

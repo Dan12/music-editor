@@ -1,9 +1,14 @@
 import './Event';
 // import { TestObjEvent } from './testObjEvent';
 
-export class TestObjEvent extends EditorEvent {
+export interface TestInterface{
+    num: number;
+    someString: string;
+    testObj: TestObj1;
+}
 
-    public constructor(callback?: (obj: TestObj1) => void, obj?: TestObj1) {
+export class TestObjEvent extends EditorEvent {
+    public constructor(callback?: (obj: TestInterface) => void, obj?: TestInterface) {
         super(callback, obj, 'testing_send');
     };
 };
@@ -18,7 +23,7 @@ export class TestObj1 {
     }
 
     public sendMsg(): void {
-        eventManager.fireEvent(new TestObjEvent(null, this));
+        eventManager.fireEvent(new TestObjEvent(null, {num: this.num, someString: 'a test string', testObj: this}));
     }
 
     public getNum(): number{

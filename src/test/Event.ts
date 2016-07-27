@@ -17,6 +17,7 @@ abstract class EditorEvent {
         return this.name;
     }
 
+    // return the current arguments set for this event
     public getArgs() {
         return this.obj;
     };
