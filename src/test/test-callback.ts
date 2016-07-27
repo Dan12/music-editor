@@ -64,7 +64,7 @@ export function callbackFunction(sound: AudioBufferSourceNode) {
  */
 let playSound = function(source: AudioBufferSourceNode){
   console.log('A callback');
-  // delay, offset, length
+  // delay, offset, [length]
   source.start(0, 0.006);
 
   setTimeout(function(){

@@ -1,7 +1,11 @@
 import { TestObj1 } from './test-obj-1';
-import './event';
+import { EditorEvent } from './event';
 
-// the interface for the event object
+/**
+ * describes the payload for this event
+ * @element TestInterface
+ * @interface TestInterface
+ */
 export interface TestInterface {
   num: number;
   someString: string;
@@ -14,11 +18,21 @@ export interface TestInterface {
  * @extends EditorEvent
  * @constructor
  * @param [callback] {function} The optional callback function which takes an object
- * @param [obj] {any} The optional object that means that this object hold the payload for an event
  */
 export class TestObjEvent extends EditorEvent {
-  public constructor(callback?: (obj: TestInterface) => void, obj?: TestInterface) {
+  public constructor(callback?: (obj: TestInterface) => void) {
     // the name of this event is 'testing_send'
-    super(callback, obj, 'testing_send');
+    super(callback, 'testing_send');
   };
+
+  /**
+   * Sets the payload for this event, returns this
+   * @method setPayload
+   * @chainable
+   * @returns {EditorEvent}
+   */
+  public setPayload(obj: any): EditorEvent {
+    this.obj = obj;
+    return this;
+  }
 };

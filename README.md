@@ -7,7 +7,18 @@
 - open terminal, navigate to the root directory, and type the following commands:
 	- [sudo] npm install -g tslint typescript yuidocjs
 	- python -m SimpleHTTPServer 8080
-- go ta a web browser and type localhost:8080
+- go to a web browser and type [localhost:8080](http://localhost:8080/)
+
+### Conventions not in lint
+- [something] = optional
+- soft tabs 2 spaces
+- explicity define public and void
+- set all variables to undefined by default
+- naming styles:
+	- files: dashed-separated-names.ts
+	- classes: PascalCase
+	- functions/methods: camelCase
+	- properties/variables: underscore_separated
 
 ### Linting
 - [TSLint](http://palantir.github.io/tslint/)
@@ -23,7 +34,7 @@
 - Getting started
 	- open a new terminal window and type the following command
 		- yuidoc --server .
-	- got to a web brower and type localhost:3000
+	- got to a web brower and type [localhost:3000](http://localhost:3000/)
 
 ### GUI
 - Use a canvas/html hybrid application
@@ -90,14 +101,14 @@
 	- throw warning if event is created but never registered
 
 ### Files
-- [some_object]_interact.ts
+- {some_object}_interact.ts
 	- init (creator_object)
 		- call initializers for objects that this is the container for in the heirarchy
 		- initialize Draw layer object
 		- initialize Logic layer object
 		- Register all events and
-- [some_object]_draw.ts
-- [some_object]_logic.ts
+- {some_object}_draw.ts
+- {some_object}_logic.ts
 
 ### Module List
 - Sound module

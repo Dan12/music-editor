@@ -1,4 +1,5 @@
-import './event';
+import { EditorEvent } from './event';
+import { TestEventManager } from './test-event-manager';
 import { TestObjEvent } from './test-event';
 
 /**
@@ -23,10 +24,10 @@ export class TestObj1 {
 
   /**
    * fires the {{#crossLink "TestObjEvent"}}{{/crossLink}} event
-   * @method sendMsg
+   * @method sendMsg 
    */
   public sendMsg(): void {
-    TestEventManager.fireEvent(new TestObjEvent(null, {num: this.num, someString: 'a string', testObj: this}));
+    TestEventManager.fireEvent(new TestObjEvent().setPayload({num: this.num, someString: 'a string', testObj: this}));
   }
 
   /**

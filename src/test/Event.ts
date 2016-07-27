@@ -6,12 +6,13 @@
  * @param obj {any} The optional object that means that this object hold the payload for an event
  * @param name {string} The name of this event
  */
-abstract class EditorEvent {
+export abstract class EditorEvent {
   /**
    * The name of the event
    * @property name
    * @type string
    * @default undefined
+   * @protected
    */
   protected name: string = undefined;
 
@@ -20,6 +21,7 @@ abstract class EditorEvent {
    * @property callback
    * @type function
    * @default undefined
+   * @protected
    */
   protected callback: (obj: any) => void = undefined;
 
@@ -28,11 +30,12 @@ abstract class EditorEvent {
    * @property obj
    * @type object
    * @default undefined
+   * @protected
    */
   protected obj: any = undefined;
 
-  constructor(callback: (obj: any) => void, obj: any, name: string) {
-    callback ? this.callback = callback : this.obj = obj;
+  constructor(callback: (obj: any) => void, name: string) {
+    this.callback = callback;
     this.name = name;
   }
 
@@ -53,6 +56,14 @@ abstract class EditorEvent {
   public getPayload(): any {
     return this.obj;
   };
+
+  /**
+   * Sets the payload for this event, returns this
+   * @method setPayload
+   * @chainable
+   * @returns {EditorEvent}
+   */
+  abstract setPayload(obj: any): EditorEvent;
 
   /**
    * Called when event fired with an event class.

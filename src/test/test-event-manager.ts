@@ -1,10 +1,12 @@
+import { EditorEvent } from './event';
+
 /**
  * The Test Event Manager class
- * no export to make this a global class
  * @class TestEventManager
  * @static
+ * @requires {EditorEvent}
  */
-class TestEventManager {
+export class TestEventManager {
   /**
    * The Object containing all registered events and event subscribers
    * @property events

@@ -1,4 +1,5 @@
 import { TestInterface, TestObjEvent } from './test-event';
+import { TestEventManager } from './test-event-manager';
 
 /**
  * A test object to subscribe to and receive an event with a payload
