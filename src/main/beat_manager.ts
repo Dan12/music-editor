@@ -1,5 +1,5 @@
 /**
- * The manages the current beat for playback and quaternization
+ * Manages the current beat for playback and quaternization
  * @class BeatManager
  * @static
  */

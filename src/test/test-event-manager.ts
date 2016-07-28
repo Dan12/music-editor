@@ -1,10 +1,10 @@
-import { EditorEvent } from './event';
+import { TestEditorEvent } from './event';
 
 /**
  * The Test Event Manager class
  * @class TestEventManager
  * @static
- * @requires {EditorEvent}
+ * @requires {TestEditorEvent}
  */
 export class TestEventManager {
   /**
@@ -23,9 +23,9 @@ export class TestEventManager {
   /**
    * Registers a new event by setting a property in the {{#crossLink "TestEventManager/events:property"}}{{/crossLink}} object
    * @method register
-   * @param eventClass {EditorEvent} the event to register
+   * @param eventClass {TestEditorEvent} the event to register
    */
-  static register(eventClass: EditorEvent): void {
+  static register(eventClass: TestEditorEvent): void {
     console.log('registering ' + eventClass.getName());
     if (TestEventManager.events[eventClass.getName()] === undefined)
       TestEventManager.events[eventClass.getName()] = [];
@@ -36,9 +36,9 @@ export class TestEventManager {
   /**
    * Subscribes an event callback to that event
    * @method subscribe
-   * @param eventClass {EditorEvent} the event with the callback subscribed to this event
+   * @param eventClass {TestEditorEvent} the event with the callback subscribed to this event
    */
-  static subscribe(eventClass: EditorEvent): void {
+  static subscribe(eventClass: TestEditorEvent): void {
     if (TestEventManager.events[eventClass.getName()])
       TestEventManager.events[eventClass.getName()].push(eventClass);
     else
@@ -48,9 +48,9 @@ export class TestEventManager {
   /**
    * Fires the specified event with the payload defined in the event
    * @method fireEvent
-   * @param eventClass {EditorEvent} the event with the payload to fire to all subscribers
+   * @param eventClass {TestEditorEvent} the event with the payload to fire to all subscribers
    */
-  static fireEvent(eventClass: EditorEvent): void {
+  static fireEvent(eventClass: TestEditorEvent): void {
     if (TestEventManager.events[eventClass.getName()])
       // iterate over all subscribers
       for (let i = 0; i < TestEventManager.events[eventClass.getName()].length; i++)

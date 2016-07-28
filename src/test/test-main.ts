@@ -1,6 +1,6 @@
 /**
  * The main file that starts the tests when the document has loaded
- * @class test-main
+ * @class TestMain
  */
 
 // full jquery import here (not needed elsewhere)
@@ -37,7 +37,7 @@ $(document).ready(function(){
 
 /*
  * @method criticalTestsPassed
- * @for test-main
+ * @for TestMain
  * @return {boolean} have all critical tests passed
  */
 function criticalTestsPassed(): boolean {

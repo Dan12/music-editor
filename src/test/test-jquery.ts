@@ -1,10 +1,10 @@
-import { HowlSound } from './test-sound-object';
+import { TestHowlSound } from './test-sound-object';
 import { staticTests } from './static-tests';
 
 /**
  * Test some ui stuff using jquery
  * @method testUI
- * @for test-main
+ * @for TestMain
  */
 export function testUI(): void {
 
@@ -12,7 +12,7 @@ export function testUI(): void {
   $('#test_area').append('<button id="clickMe">Click Me</button>');
   $('#stuff').html('Lolz');
 
-  let sound: HowlSound = new HowlSound(`audio/${testFileName}`);
+  let sound: TestHowlSound = new TestHowlSound(`audio/${testFileName}`);
 
   $('#clickMe').click(function(){
 

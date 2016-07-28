@@ -1,12 +1,12 @@
 /**
  * The Editor Event abstract class is the basis for each event
- * @class EditorEvent
+ * @class TestEditorEvent
  * @constructor
  * @param callback {function} The callback function which takes an object
  * @param obj {any} The optional object that means that this object hold the payload for an event
  * @param name {string} The name of this event
  */
-export abstract class EditorEvent {
+export abstract class TestEditorEvent {
   /**
    * The name of the event
    * @property name
@@ -59,18 +59,26 @@ export abstract class EditorEvent {
 
   /**
    * Sets the payload for this event, returns this
+   * must be instantiated by the subclass to complete the interface promise for the payload
+   * when instantiated, the type of obj should not be anything
+   * the method in the sub class should look like this
+   *
+   *    this.obj = obj;
+   *    return this;
+   *
    * @method setPayload
    * @chainable
-   * @returns {EditorEvent}
+   * @param obj {any} the object that the payload gets set to
+   * @returns {TestEditorEvent}
    */
-  abstract setPayload(obj: any): EditorEvent;
+  abstract setPayload(obj: any): TestEditorEvent;
 
   /**
    * Called when event fired with an event class.
    * @method eventFired
-   * @param eventClass {EditorEvent} the event class holding the payload for this event
+   * @param eventClass {TestEditorEvent} the event class holding the payload for this event
    */
-  public eventFired(eventClass: EditorEvent): void {
+  public eventFired(eventClass: TestEditorEvent): void {
     this.callback(eventClass.getPayload());
   }
 }

@@ -6,7 +6,7 @@ let samplesPerSecond = 48000;
  * This function tests the callback functionality for the get-audio function
  * and extracts data from an audio buffer and displays it on the screen
  * @method callbackFunction
- * @for test-main
+ * @for TestMain
  * @param sound {AudioBufferSourceNode} the web audio context node for the source of the sound to be tested
  */
 export function callbackFunction(sound: AudioBufferSourceNode) {
@@ -59,7 +59,7 @@ export function callbackFunction(sound: AudioBufferSourceNode) {
 /**
  * This function plays the sound from the given input
  * @method playSound
- * @for test-main
+ * @for TestMain
  * @param sound {AudioBufferSourceNode} the web audio context node for the source of the sound to be tested
  */
 let playSound = function(source: AudioBufferSourceNode){

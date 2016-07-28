@@ -1,7 +1,7 @@
 /**
  * This function tests static html positioning
  * @method staticTests
- * @for test-main
+ * @for TestMain
  */
 export function staticTests() {
   $('#test_area').append(
@@ -18,7 +18,7 @@ export function staticTests() {
 /**
  * This function returns the html for a small 50 by 50 pixel box positioned abolutley at the given coordinates
  * @method smallBox
- * @for test-main
+ * @for TestMain
  * @param x {number} the number of pixels for the left attribute
  * @param y {number} the number of pixels for the top attribute
  */

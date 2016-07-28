@@ -3,12 +3,12 @@ import { Howl } from 'howler';
 
 /**
  * This class encapsulates a howler object and exposes a simple api
- * @class HowlSound
+ * @class TestHowlSound
  * @constructor
  * @param fileName {string} the name of the audio file
  * @param loop {boolean} flag to loop the sound or not
  */
-export class HowlSound {
+export class TestHowlSound {
 
   /**
    * a Howler js object
