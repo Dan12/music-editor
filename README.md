@@ -72,7 +72,7 @@
 - song config file (structure to be determined), store in db
 
 ### Module system
-- Interact container
+- Facade container
 	- Links to objects above and below it in chain (like doubly(maybe, might only need singly) linked list with multiple possible branches)
 	- Heirarchical event flow
 		- recieves events from objects higher up the chain
@@ -101,98 +101,98 @@
 	- throw warning if event is created but never registered
 
 ### Files
-- {some_object}_interact.ts
+- f_{some_object}.ts
 	- init (creator_object)
 		- call initializers for objects that this is the container for in the heirarchy
 		- initialize Draw layer object
 		- initialize Logic layer object
 		- Register all events and
-- {some_object}_draw.ts
-- {some_object}_logic.ts
+- d_{some_object}.ts
+- l_{some_object}.ts
 
 ### Module List
 - Sound module
-    - 1 single mp3/wav/...
-    - Depends on howler.js
-    - play, stop
+  - 1 single mp3/wav/...
+  - Depends on howler.js
+  - play, stop
 - Sound container module
-    - contains sound[]
-    - looped, quaternize, hold to play
-    - pitch change (multiple sounds)
-    - reset pitch change?
+  - contains sound[]
+  - looped, quaternize, hold to play
+  - pitch change (multiple sounds)
+  - reset pitch change?
 - Sound manager module
-    - contains sound container
-    - keycode?, sound container actions
-    - grouped sound containers, only play 1 at a time
+  - contains sound container
+  - keycode?, sound container actions
+  - grouped sound containers, only play 1 at a time
 - Beat manager module
-    - keeps time/beat
-    - can change beat
-    - only 1 in application
+  - keeps time/beat
+  - can change beat
+  - only 1 in application
 - Note module
-    - key/action (beat change, soundpack change)
-    - length, start time/beat
-    - emits events
+  - key/action (beat change, soundpack change)
+  - length, start time/beat
+  - emits events
 - Loop module
-    - contains ordered note[]
-    - length, start time/beat, loop amount
-    - activates notes
+  - contains ordered note[]
+  - length, start time/beat, loop amount
+  - activates notes
 - Note manager module OR loop manager module
-    - contains ordered note[] of all notes in all loops OR loop[]
-    - balanced bst? need to find way to efficiently squash for constant time lookup
-    - OR handles organization of loop[]
+  - contains ordered note[] of all notes in all loops OR loop[]
+  - balanced bst? need to find way to efficiently squash for constant time lookup
+  - OR handles organization of loop[]
 - Keyboard display module
-    - draws keyboard
-    - key activated/not
-    - set key color
+  - draws keyboard
+  - key activated/not
+  - set key color
 - Layout module
-    - turns keycode int array index
-    - multiple browser support
+  - turns keycode int array index
+  - multiple browser support
 - Color Effect module
-    - color pattern to be executed over a certain number of beats
-    - emits events to control module
+  - color pattern to be executed over a certain number of beats
+  - emits events to control module
 - Color Effects manager module
-    - contains color effect[]
-    - start color effect
-    - recieve events and pass on to control module
+  - contains color effect[]
+  - start color effect
+  - recieve events and pass on to control module
 - Midi instrument module
-    - contains color effects manager
-    - contains keyboard display and handles no color effects on keyboard
-    - contains sound manager[]
-    - contains layout
-    - activates key and color effect
-    - assigned soundpack?
+  - contains color effects manager
+  - contains keyboard display and handles no color effects on keyboard
+  - contains sound manager[]
+  - contains layout
+  - activates key and color effect
+  - assigned soundpack?
 - Beat instrument module
-    - contains keyboard display and takes care of beat instrument display
-    - handles row stop events
-    - contains sound manager[]
-    - contains layout
-    - assigned soundpack?
+  - contains keyboard display and takes care of beat instrument display
+  - handles row stop events
+  - contains sound manager[]
+  - contains layout
+  - assigned soundpack?
 - Track module
-    - contains loop[]
-    - only 1 loop at any point in time
-    - different loops?
+  - contains loop[]
+  - only 1 loop at any point in time
+  - different loops?
 - Soundpack module
-    - Contains track[]
-    - contains loop/note manager
-    - new notes/loops are propegated up controller to managers to compile sequential note ordering
-    - contains beat/midi instrument
+  - Contains track[]
+  - contains loop/note manager
+  - new notes/loops are propegated up controller to managers to compile sequential note ordering
+  - contains beat/midi instrument
 - Key Event module
-    - only 1 in application
-    - emit keyboard events
-    - emit special/misc key events
+  - only 1 in application
+  - emit keyboard events
+  - emit special/misc key events
 - Mouse Event module
-    - only 1 in application
-    - emit mouse events
+  - only 1 in application
+  - emit mouse events
 - File Browser module
-    - load all mp3 files for user
-    - folder structure?
-    - drag files to sound container
+  - load all mp3 files for user
+  - folder structure?
+  - drag files to sound container
 
 
 - Editor Container
-    - contains soundpack[]
-    - contains key event
-    - contains mouse event
-    - controls playback/record
+  - contains soundpack[]
+  - contains key event
+  - contains mouse event
+  - controls playback/record
 - Chat system
-    - users can chat with each other
+  - users can chat with each other

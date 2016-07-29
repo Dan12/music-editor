@@ -1,5 +1,5 @@
 import { TestObj1 } from './test-obj-1';
-import { TestEditorEvent } from './event';
+import { TestEditorEvent } from './event-test';
 
 /**
  * describes the payload for this event

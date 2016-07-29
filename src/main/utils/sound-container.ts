@@ -1,4 +1,4 @@
-import { Sound } from '../sound/logic';
+import { Sound } from './sound';
 
 /**
  * a container that represents a single sound but with potentially mutliple pitches

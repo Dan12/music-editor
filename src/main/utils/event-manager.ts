@@ -1,12 +1,12 @@
-import { TestEditorEvent } from './event-test';
+import { AbstractEvent } from '../abstracts/event';
 
 /**
- * The Test Event Manager class
- * @class TestEventManager
+ * The Event Manager class
+ * @class EventManager
  * @static
- * @requires {TestEditorEvent}
+ * @requires {AbstractEvent}
  */
-export class TestEventManager {
+export class EventManager {
   /**
    * The Object containing all registered events and event subscribers
    * @property events
@@ -21,14 +21,14 @@ export class TestEventManager {
   }
 
   /**
-   * Registers a new event by setting a property in the {{#crossLink "TestEventManager/events:property"}}{{/crossLink}} object
+   * Registers a new event by setting a property in the {{#crossLink "AbstractEvent/events:property"}}{{/crossLink}} object
    * @method register
-   * @param eventClass {TestEditorEvent} the event to register
+   * @param event_object {AbstractEvent} the event to register
    */
-  static register(eventClass: TestEditorEvent): void {
-    console.log('registering ' + eventClass.getName());
-    if (TestEventManager.events[eventClass.getName()] === undefined)
-      TestEventManager.events[eventClass.getName()] = [];
+  static register(event_object: AbstractEvent): void {
+    console.log('registering ' + event_object.getName());
+    if (EventManager.events[event_object.getName()] === undefined)
+      EventManager.events[event_object.getName()] = [];
     else
       console.log('Error. this event already exists');
   }
@@ -38,9 +38,9 @@ export class TestEventManager {
    * @method subscribe
    * @param eventClass {TestEditorEvent} the event with the callback subscribed to this event
    */
-  static subscribe(eventClass: TestEditorEvent): void {
-    if (TestEventManager.events[eventClass.getName()])
-      TestEventManager.events[eventClass.getName()].push(eventClass);
+  static subscribe(event_object: AbstractEvent): void {
+    if (EventManager.events[event_object.getName()])
+      EventManager.events[event_object.getName()].push(event_object);
     else
       console.log('Error. event doesn\'t exist');
   }
@@ -50,11 +50,11 @@ export class TestEventManager {
    * @method fireEvent
    * @param eventClass {TestEditorEvent} the event with the payload to fire to all subscribers
    */
-  static fireEvent(eventClass: TestEditorEvent): void {
-    if (TestEventManager.events[eventClass.getName()])
+  static fireEvent(event_object: AbstractEvent): void {
+    if (EventManager.events[event_object.getName()])
       // iterate over all subscribers
-      for (let i = 0; i < TestEventManager.events[eventClass.getName()].length; i++)
-        TestEventManager.events[eventClass.getName()][i].eventFired(eventClass);
+      for (let i = 0; i < EventManager.events[event_object.getName()].length; i++)
+        EventManager.events[event_object.getName()][i].eventFired(event_object);
     else
       console.log('Error. called event wasn\'t registered');
   }
@@ -65,8 +65,8 @@ export class TestEventManager {
    * @method checkEvents
    */
   static checkEvents() {
-    for (let name in TestEventManager.events) {
-      if (TestEventManager.events[name].length === 0)
+    for (let name in EventManager.events) {
+      if (EventManager.events[name].length === 0)
         console.log('Event ' + name + ' was registered but never subscribed to');
     }
     return true;
