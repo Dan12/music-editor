@@ -16,7 +16,7 @@ export class TestObj1 {
   private num: number = undefined;
 
   public constructor() {
-    this.num = 59382;
+    this.num = 454567;
 
     TestEventManager.register(new TestObjEvent());
   }

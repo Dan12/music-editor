@@ -6,7 +6,17 @@ export abstract class AbstractFacade {
 
   protected logic_class: AbstractLogic;
 
-  protected draw(): void {
-    this.draw_class.draw();
+  /**
+   * initialize the html of the gui element
+   */
+  public initialize_gui(): void {
+    this.draw_class.initialize();
+  }
+
+  /**
+   * redrawing of custom canvas elements sent down the heirarchy
+   */
+  public redraw(): void {
+    this.draw_class.redraw();
   }
 }

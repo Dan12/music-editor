@@ -1,19 +1,24 @@
-import { AbstractDraw } from '../../abstracts/draw'
+import { AbstractDraw } from '../../abstracts/draw';
 
-namespace MainContainer {
-  export interface StringValidator {
-        isAcceptable(s: string): boolean;
-    }
+const main_container_style = '\
+width: 99.8%; \
+height: 99.5%; \
+border: 1px solid black; \
+';
 
-  // create class
-  export class Draw extends AbstractDraw{
+export class MainContainerDraw extends AbstractDraw {
 
-    constructor() {
-      super();
-    }
+  constructor() {
+    super();
+  }
 
-    public draw(): void {
-      // draw me
-    }
+  public initialize(): void {
+    $('#main_area').append(`<div id="main_container" style="${main_container_style}"></div>`);
+    $('#main_container').append(`<div>Starting Up</div>`);
+    $('#main_container').append(`<footer id="main_footer">Made by Daniel Weber</footer>`);
+  }
+
+  public redraw(): void {
+    // draw me
   }
 }

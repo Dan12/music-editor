@@ -20,6 +20,8 @@ import { TestSendToObject } from './test-send-object';
 
 $(document).ready(function(){
 
+  $('body').append('<div id="test_area"></div>');
+
   // create a new sender object
   let to1 = new TestObj1();
   let ts1 = new TestSendToObject();

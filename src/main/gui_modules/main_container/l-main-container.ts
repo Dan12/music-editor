@@ -1,12 +1,7 @@
-import { AbstractLogic } from '../../abstracts/logic'
+import { AbstractLogic } from '../../abstracts/logic';
 
-namespace MainContainer {
-  // create class
-  class Logic extends AbstractLogic {
-    constructor() {
-      super();
-
-      // do something
-    }
+export class MainContainerLogic extends AbstractLogic {
+  constructor() {
+    super();
   }
 }

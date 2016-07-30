@@ -1,12 +1,8 @@
-body{
+body {
     font-family: arial;
-}
-
-canvas{
-    border: 1px solid black;
-    display: inline;
-}
-
-#test_area{
-    display: inline;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
 }

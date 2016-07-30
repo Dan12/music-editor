@@ -1,25 +1,14 @@
-/// <reference path="d-main-container.ts" />
-/// <reference path="./l-main-container.ts" />
+import { AbstractFacade } from '../../abstracts/facade';
+import { MainContainerDraw } from './d-main-container';
+import { MainContainerLogic } from './l-main-container';
 
-import { AbstractFacade } from '../../abstracts/facade'
+export class MainContainerFacade extends AbstractFacade {
 
-namespace MainContainer {
+  constructor() {
+    super();
 
-  const lettersRegexp = /^[A-Za-z]+$/;
-    export class LettersOnlyValidator implements StringValidator {
-        isAcceptable(s: string) {
-            return lettersRegexp.test(s);
-        }
-    }
-  // create class
-  export class Facade extends AbstractFacade {
-
-    constructor() {
-      super();
-
-      this.draw_class = new Draw();
-    }
-
+    this.draw_class = new MainContainerDraw();
+    this.logic_class = new MainContainerLogic();
   }
 
 }

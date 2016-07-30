@@ -1,3 +1,7 @@
 export abstract class AbstractDraw {
-  abstract draw(): void;
+  abstract initialize(): void;
+
+  public redraw(): void {
+    // no redrawing
+  }
 }

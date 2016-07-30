@@ -9,10 +9,15 @@ export function staticTests() {
     style="width: 300px; height: 300px; border: 1px solid black; position: relative; \
     "></div>'
   );
+  $('#static_tests').append(
+    '<div id="big_box" \
+    style="width: 100px; height: 100px; border: 1px solid black; position: relative; left: 50px; top: 50px; \
+    "></div>'
+  );
 
-  $('#static_tests').append(smallBox(0, 0));
+  $('#big_box').append(smallBox(10, 10));
 
-  $('#static_tests').append(smallBox(0, 50));
+  $('#static_tests').append(smallBox(170, 50));
 };
 
 /**
