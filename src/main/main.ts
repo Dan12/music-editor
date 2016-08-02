@@ -9,8 +9,8 @@ import * as $ from 'jquery';
 import { MainContainerFacade } from './gui_modules/main_container/f-main-container';
 
 const main_area_style = '\
-width: 100%; \
-height: 100%; \
+width: 100vw; \
+height: 100vh; \
 ';
 
 $(document).ready(function(){

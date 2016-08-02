@@ -8,7 +8,7 @@ height: 15%; \
 
 export class NavBarDraw extends AbstractDraw {
 
-  constructor(container: string) {
+  constructor(container: JQuery) {
     super(container);
   }
 

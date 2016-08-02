@@ -17,7 +17,7 @@ height: 100%; \
  */
 export class MainContainerDraw extends AbstractDraw {
 
-  constructor(container: string) {
+  constructor(container: JQuery) {
     super(container);
   }
 

@@ -8,8 +8,9 @@ import { AbstractDraw } from '../../abstracts/draw';
 const file_browser_style = '\
 width: 200px; \
 height: 85%; \
-padding: 4px; \
+padding: 0; \
 background-color: rgb(220,220,220); \
+overflow-y: scroll; \
 ';
 
 /**
@@ -21,7 +22,7 @@ background-color: rgb(220,220,220); \
  */
 export class FileBrowserDraw extends AbstractDraw {
 
-  constructor(container: string) {
+  constructor(container: JQuery) {
     super(container);
   }
 

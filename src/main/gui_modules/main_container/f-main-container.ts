@@ -22,8 +22,8 @@ export class MainContainerFacade extends AbstractFacade {
     this.initializeClasses(new MainContainerDraw(this.container), new MainContainerLogic());
 
     // add a nav bar to this container
-    this.addGuiChild(new NavBarFacade($(`#${this.container}`)));
-    this.addGuiChild(new FileBrowserFacade($(`#${this.container}`)));
+    this.addGuiChild(new NavBarFacade(this.container));
+    this.addGuiChild(new FileBrowserFacade(this.container));
   }
 
   /**

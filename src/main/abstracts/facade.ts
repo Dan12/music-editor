@@ -31,10 +31,10 @@ export abstract class AbstractFacade {
   /**
    * this facade's html container id
    * @property container
-   * @type string
+   * @type JQuery
    * @default undefined
    */
-  protected container: string = undefined;
+  protected container: JQuery = undefined;
 
   /**
    * this facade's parent html element
@@ -53,12 +53,14 @@ export abstract class AbstractFacade {
    * @param [html_type='div'] {string} the optional html tag to give this gui element
    */
   constructor(container: string, parent: JQuery, html_type?: string) {
-    this.container = container;
+    let type = (html_type === undefined ? 'div' : html_type);
+
+    this.container = $(`<${type} id="${container}"></${type}>`);
     this.parent = parent;
 
     // appends the container for this gui element to the specified parent
-    let type = (html_type === undefined ? 'div' : html_type);
-    parent.append(`<${type} id="${this.container}"></${type}>`);
+
+    parent.append(this.container);
   }
 
   protected initializeClasses(draw_class: AbstractDraw, logic_class: AbstractLogic): void {

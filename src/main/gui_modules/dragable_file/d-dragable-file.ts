@@ -7,9 +7,10 @@ import { AbstractDraw } from '../../abstracts/draw';
  */
 const dragable_file_style = '\
 background-color: white; \
-margin: 4px 8px; \
+margin: 8px; \
 height: 40px; \
 border-radius: 2px; \
+cursor: -moz-grab; cursor: -webkit-grab; cursor: grab; \
 ';
 
 /**
@@ -21,7 +22,7 @@ border-radius: 2px; \
  */
 export class DragableFileDraw extends AbstractDraw {
 
-  constructor(container: string) {
+  constructor(container: JQuery) {
     super(container);
   }
 

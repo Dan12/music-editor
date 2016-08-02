@@ -78,7 +78,7 @@ const ${underscores}_style = '\
  */
 export class ${all_caps}Draw extends AbstractDraw {
 
-  constructor(container: string) {
+  constructor(container: JQuery) {
     super(container);
   }
 

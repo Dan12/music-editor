@@ -3,17 +3,17 @@ export abstract class AbstractDraw {
    * the JQuery element that is this gui element
    * @property container
    * @type JQuery
-   * @default undefined 
+   * @default undefined
    */
   protected container: JQuery = undefined;
 
   /**
    * create the jquery object for this object's container
    * @class AbstractDraw
-   * @param container {string} this elements id
+   * @param container {JQuery} this elements id
    */
-  constructor(container: string) {
-    this.container = $(`#${container}`);
+  constructor(container: JQuery) {
+    this.container = container;
   }
 
   /**
