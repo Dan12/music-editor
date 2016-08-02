@@ -4,19 +4,21 @@ import { AbstractLogic } from './logic';
 export abstract class AbstractFacade {
   /**
    * this facade's draw class
+   * set to type any to allow custom methods
    * @property draw_class
    * @type AbstractDraw
    * @default undefined
    */
-  protected draw_class: AbstractDraw = undefined;
+  protected draw_class: any = undefined;
 
   /**
    * this facade's logic class
+   * set to type any to allow custom methods
    * @property logic_class
    * @type AbstractLogic
    * @default undefined
    */
-  protected logic_class: AbstractLogic = undefined;
+  protected logic_class: any = undefined;
 
   /**
    * this facade's gui children
@@ -59,6 +61,11 @@ export abstract class AbstractFacade {
     parent.append(`<${type} id="${this.container}"></${type}>`);
   }
 
+  protected initializeClasses(draw_class: AbstractDraw, logic_class: AbstractLogic): void {
+    this.draw_class = draw_class;
+    this.logic_class = logic_class;
+  }
+
   /**
    * initialize this element's children and then initialize this element's gui
    * @method initializeGui
@@ -69,7 +76,7 @@ export abstract class AbstractFacade {
         this.gui_children[i].initializeGui();
     }
 
-    this.draw_class.initialize();
+    (this.draw_class as AbstractDraw).initialize();
   }
 
   /**
@@ -77,7 +84,7 @@ export abstract class AbstractFacade {
    * @method redraw
    */
   public redraw(): void {
-    this.draw_class.redraw();
+    (this.draw_class as AbstractDraw).redraw();
   }
 
   /**
@@ -88,4 +95,7 @@ export abstract class AbstractFacade {
   protected addGuiChild(facade: AbstractFacade): void {
     this.gui_children.push(facade);
   }
+
+  protected abstract drawClass(): any;
+  protected abstract logicClass(): any;
 }

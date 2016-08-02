@@ -3,6 +3,7 @@ import { MainContainerDraw } from './d-main-container';
 import { MainContainerLogic } from './l-main-container';
 
 import { NavBarFacade } from '../nav_bar/f-nav-bar';
+import { FileBrowserFacade } from '../file_browser/f-file-browser';
 
 /**
  * The facade for the main container.
@@ -18,11 +19,25 @@ export class MainContainerFacade extends AbstractFacade {
     super('main_container', parent);
 
     // initialize this facade's enclosed classes
-    this.draw_class = new MainContainerDraw(this.container);
-    this.logic_class = new MainContainerLogic();
+    this.initializeClasses(new MainContainerDraw(this.container), new MainContainerLogic());
 
     // add a nav bar to this container
     this.addGuiChild(new NavBarFacade($(`#${this.container}`)));
+    this.addGuiChild(new FileBrowserFacade($(`#${this.container}`)));
   }
+
+  /**
+   * the way to access this class's draw_class
+   * @method drawClass
+   * @return NavBarDraw
+   */
+  protected drawClass(): MainContainerDraw { return (this.draw_class as MainContainerDraw); }
+
+  /**
+   * the way to access this class's logic_class
+   * @method logicClass
+   * @return NavBarLogic
+   */
+  protected logicClass(): MainContainerLogic { return (this.logic_class as MainContainerLogic); }
 
 }

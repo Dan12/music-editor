@@ -14,7 +14,9 @@ export class NavBarDraw extends AbstractDraw {
 
   public initialize(): void {
     this.setStyle(nav_bar_style);
-    this.container.append('<button id="expand_file_browser">Expand File Browser</button>');
-    this.container.append('<button id="toggle_keyboard">Show Keyboard</button>');
+  }
+
+  public addButton(id: string, text: string): void {
+    this.container.append(`<button id="${id}">${text}</button>`);
   }
 }

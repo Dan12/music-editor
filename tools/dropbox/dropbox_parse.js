@@ -1,6 +1,6 @@
 // run with node
 
-var authToken = "[db auth token here]";
+var authToken = "[dropbox auth token here]";
 
 var baseFolder = "aero"
 

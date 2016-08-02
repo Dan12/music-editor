@@ -33,15 +33,29 @@
 - [YUIDoc](http://yui.github.io/yuidoc/)
 - Getting started
 	- open a new terminal window and type the following command
-		- yuidoc --server .
+		- yuidoc --server ./lib/main
 	- got to a web brower and type [localhost:3000](http://localhost:3000/)
+
+### Security
+- legitimate security concerns about user generated content
+- xss
+
+### Creation Tool
+- can either recommend youtube videos with project files or cut them up with tool (need dropbox api key, trust (how)):
+- upload long segments
+- cut them up, show the waveform (fine tuning), ask to click on launchpad button, client side html and webaudio
+- transfer to database
+	- dropbox: need api key to post sounds to dropbox, create layout file with urls
+	- database: save files in database, create layout file with local urls
+
+### Create a new Module
+- type node new_module.js when creating a new module
 
 ### GUI
 - Use a canvas/html hybrid application
 	- html for navs and menus
 	- canvas for waveform rendering
 	- no stylesheet, all locally styled, should be fine if oop is implemented correctly
-- all canvas with [Zebkit](http://www.zebkit.com/), might not all be be on same canvas and learning curve
 
 ### Autosave songs in case of crash and caputre meta+s key for save
 

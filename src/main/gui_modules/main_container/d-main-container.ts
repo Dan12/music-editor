@@ -23,6 +23,5 @@ export class MainContainerDraw extends AbstractDraw {
 
   public initialize(): void {
     this.setStyle(main_container_style);
-    this.container.append(`<footer id="main_footer">Made by Daniel Weber</footer>`);
   }
 }
