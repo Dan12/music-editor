@@ -9,8 +9,10 @@ export class NavBarFacade extends AbstractFacade {
   constructor(parent: JQuery) {
     super('nav_bar', parent, 'nav');
 
-    this.initializeClasses(new NavBarDraw(this.container), new NavBarLogic(this.container));
+    let temp_logic = new NavBarLogic(this.container);
+    this.initializeClasses(new NavBarDraw(this.container, temp_logic), temp_logic);
 
+    // add two buttons to the nav bar
     this.drawClass().addButton('expand_file_browser', 'Expand File Browser');
     this.drawClass().addButton('toggle_keyboard', 'Show Keyboard');
 
@@ -22,13 +24,13 @@ export class NavBarFacade extends AbstractFacade {
    * @method drawClass
    * @return NavBarDraw
    */
-  protected drawClass(): NavBarDraw { return (this.draw_class as NavBarDraw); }
+  protected drawClass(): NavBarDraw { return (this._draw_class as NavBarDraw); }
 
   /**
    * the way to access this class's logic_class
    * @method logicClass
    * @return NavBarLogic
    */
-  protected logicClass(): NavBarLogic { return (this.logic_class as NavBarLogic); }
+  protected logicClass(): NavBarLogic { return (this._logic_class as NavBarLogic); }
 
 }

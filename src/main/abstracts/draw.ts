@@ -1,3 +1,5 @@
+import { AbstractLogic } from './logic';
+
 export abstract class AbstractDraw {
   /**
    * the JQuery element that is this gui element
@@ -8,11 +10,19 @@ export abstract class AbstractDraw {
   protected container: JQuery = undefined;
 
   /**
+   * access the logic class which holds the state of this draw class
+   * @property _logic_class
+   * @type AbstractLogic
+   * @default undefined
+   */
+  protected _logic_class: any = undefined;
+
+  /**
    * create the jquery object for this object's container
    * @class AbstractDraw
    * @param container {JQuery} this elements id
    */
-  constructor(container: JQuery) {
+  constructor(container: JQuery, logic_class: AbstractLogic) {
     this.container = container;
   }
 

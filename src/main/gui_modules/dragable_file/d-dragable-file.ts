@@ -1,4 +1,5 @@
 import { AbstractDraw } from '../../abstracts/draw';
+import { DragableFileLogic } from './l-dragable-file';
 
 /**
  * --- optional, some style ---
@@ -8,9 +9,11 @@ import { AbstractDraw } from '../../abstracts/draw';
 const dragable_file_style = '\
 background-color: white; \
 margin: 8px; \
-height: 40px; \
+padding: 5px 0; \
+height: 30px; \
 border-radius: 2px; \
 cursor: -moz-grab; cursor: -webkit-grab; cursor: grab; \
+font-size: 24px; \
 ';
 
 /**
@@ -22,9 +25,11 @@ cursor: -moz-grab; cursor: -webkit-grab; cursor: grab; \
  */
 export class DragableFileDraw extends AbstractDraw {
 
-  constructor(container: JQuery) {
-    super(container);
+  constructor(container: JQuery, logic_class: DragableFileLogic) {
+    super(container, logic_class);
   }
+
+  private logicClass(): DragableFileLogic { return (this._logic_class as DragableFileLogic); }
 
   public initialize(): void {
     this.setStyle(dragable_file_style);

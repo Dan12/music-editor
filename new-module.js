@@ -37,28 +37,31 @@ export class ${all_caps}Facade extends AbstractFacade {
   constructor(parent: JQuery) {
     super('${underscores}', parent);
 
+    let temp_logic = new ${all_caps}Logic(this.container);
+
     // initialize this facade's enclosed classes
-    this.initializeClasses(new ${all_caps}Draw(this.container), new ${all_caps}Logic());
+    this.initializeClasses(new ${all_caps}Draw(this.container, temp_logic), temp_logic);
   }
 
   /**
-   * the way to access this class's draw_class
+   * the way to access this class's _draw_class
    * @method drawClass
    * @return ${all_caps}Draw
    */
-  protected drawClass(): ${all_caps}Draw { return (this.draw_class as ${all_caps}Draw); }
+  protected drawClass(): ${all_caps}Draw { return (this._draw_class as ${all_caps}Draw); }
 
   /**
-   * the way to access this class's logic_class
+   * the way to access this class's _logic_class
    * @method logicClass
    * @return ${all_caps}Logic
    */
-  protected logicClass(): ${all_caps}Logic { return (this.logic_class as ${all_caps}Logic); }
+  protected logicClass(): ${all_caps}Logic { return (this._logic_class as ${all_caps}Logic); }
 }
 `;
 
   var drawTemplate =
 `import { AbstractDraw } from '../../abstracts/draw';
+import { ${all_caps}Logic } from './l-${file_name}';
 
 /**
  * --- optional, some style ---
@@ -78,9 +81,16 @@ const ${underscores}_style = '\
  */
 export class ${all_caps}Draw extends AbstractDraw {
 
-  constructor(container: JQuery) {
-    super(container);
+  constructor(container: JQuery, logic_class: ${all_caps}Logic) {
+    super(container, logic_class);
   }
+
+  /**
+   * the way to access this class's _logic_class
+   * @method logicClass
+   * @return NavBarLogic
+   */
+  private logicClass(): ${all_caps}Logic { return (this._logic_class as ${all_caps}Logic); }
 
   public initialize(): void {
     this.setStyle(${underscores}_style);

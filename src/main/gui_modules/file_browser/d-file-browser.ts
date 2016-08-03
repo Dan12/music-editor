@@ -1,4 +1,5 @@
 import { AbstractDraw } from '../../abstracts/draw';
+import { FileBrowserLogic } from './l-file-browser';
 
 /**
  * --- optional, some style ---
@@ -24,9 +25,11 @@ overflow-y: scroll; \
  */
 export class FileBrowserDraw extends AbstractDraw {
 
-  constructor(container: JQuery) {
-    super(container);
+  constructor(container: JQuery, logic_class: FileBrowserLogic) {
+    super(container, logic_class);
   }
+
+  private logicClass(): FileBrowserLogic { return (this._logic_class as FileBrowserLogic); }
 
   public initialize(): void {
     this.setStyle(file_browser_style);

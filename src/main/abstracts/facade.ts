@@ -5,20 +5,20 @@ export abstract class AbstractFacade {
   /**
    * this facade's draw class
    * set to type any to allow custom methods
-   * @property draw_class
+   * @property _draw_class
    * @type AbstractDraw
    * @default undefined
    */
-  protected draw_class: any = undefined;
+  protected _draw_class: any = undefined;
 
   /**
    * this facade's logic class
    * set to type any to allow custom methods
-   * @property logic_class
+   * @property _logic_class
    * @type AbstractLogic
    * @default undefined
    */
-  protected logic_class: any = undefined;
+  protected _logic_class: any = undefined;
 
   /**
    * this facade's gui children
@@ -64,8 +64,8 @@ export abstract class AbstractFacade {
   }
 
   protected initializeClasses(draw_class: AbstractDraw, logic_class: AbstractLogic): void {
-    this.draw_class = draw_class;
-    this.logic_class = logic_class;
+    this._draw_class = draw_class;
+    this._logic_class = logic_class;
   }
 
   /**
@@ -78,7 +78,7 @@ export abstract class AbstractFacade {
         this.gui_children[i].initializeGui();
     }
 
-    (this.draw_class as AbstractDraw).initialize();
+    (this._draw_class as AbstractDraw).initialize();
   }
 
   /**
@@ -86,7 +86,7 @@ export abstract class AbstractFacade {
    * @method redraw
    */
   public redraw(): void {
-    (this.draw_class as AbstractDraw).redraw();
+    (this._draw_class as AbstractDraw).redraw();
   }
 
   /**

@@ -33,7 +33,7 @@
 - [YUIDoc](http://yui.github.io/yuidoc/)
 - Getting started
 	- open a new terminal window and type the following command
-		- yuidoc --server ./lib/src/main
+		- yuidoc --server ./lib/main
 	- got to a web brower and type [localhost:3000](http://localhost:3000/)
 
 ### Security

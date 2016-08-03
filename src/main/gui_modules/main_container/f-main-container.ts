@@ -18,8 +18,9 @@ export class MainContainerFacade extends AbstractFacade {
   constructor(parent: JQuery) {
     super('main_container', parent);
 
+    let temp_logic = new MainContainerLogic(this.container);
     // initialize this facade's enclosed classes
-    this.initializeClasses(new MainContainerDraw(this.container), new MainContainerLogic(this.container));
+    this.initializeClasses(new MainContainerDraw(this.container, temp_logic), temp_logic);
 
     // add a nav bar to this container
     this.addGuiChild(new NavBarFacade(this.container));
@@ -31,13 +32,13 @@ export class MainContainerFacade extends AbstractFacade {
    * @method drawClass
    * @return NavBarDraw
    */
-  protected drawClass(): MainContainerDraw { return (this.draw_class as MainContainerDraw); }
+  protected drawClass(): MainContainerDraw { return (this._draw_class as MainContainerDraw); }
 
   /**
    * the way to access this class's logic_class
    * @method logicClass
    * @return NavBarLogic
    */
-  protected logicClass(): MainContainerLogic { return (this.logic_class as MainContainerLogic); }
+  protected logicClass(): MainContainerLogic { return (this._logic_class as MainContainerLogic); }
 
 }

@@ -19,11 +19,12 @@ export class FileBrowserFacade extends AbstractFacade {
   constructor(parent: JQuery) {
     super('file_browser', parent);
 
+    let temp_logic = new FileBrowserLogic(this.container);
     // initialize this facade's enclosed classes
-    this.initializeClasses(new FileBrowserDraw(this.container), new FileBrowserLogic(this.container));
+    this.initializeClasses(new FileBrowserDraw(this.container, temp_logic), temp_logic);
 
     for (let i = 0; i < 10; i++)
-      this.addGuiChild(new DragableFileFacade(this.container));
+      this.addGuiChild(new DragableFileFacade(this.container, `file ${i}`));
 
     this.initializeSubscriptions();
   }
@@ -37,12 +38,12 @@ export class FileBrowserFacade extends AbstractFacade {
    * @method drawClass
    * @return FileBrowserDraw
    */
-  protected drawClass(): FileBrowserDraw { return (this.draw_class as FileBrowserDraw); }
+  protected drawClass(): FileBrowserDraw { return (this._draw_class as FileBrowserDraw); }
 
   /**
    * the way to access this class's logic_class
    * @method logicClass
    * @return FileBrowserLogic
    */
-  protected logicClass(): FileBrowserLogic { return (this.logic_class as FileBrowserLogic); }
+  protected logicClass(): FileBrowserLogic { return (this._logic_class as FileBrowserLogic); }
 }

@@ -11,11 +11,16 @@ import { DragableFileLogic } from './l-dragable-file';
  */
 export class DragableFileFacade extends AbstractFacade {
 
-  constructor(parent: JQuery) {
+  constructor(parent: JQuery, name: string) {
     super('dragable_file', parent);
 
+    // setting file button html contents
+    this.container.html(name);
+
+    let temp_logic = new DragableFileLogic(this.container);
+
     // initialize this facade's enclosed classes
-    this.initializeClasses(new DragableFileDraw(this.container), new DragableFileLogic(this.container));
+    this.initializeClasses(new DragableFileDraw(this.container, temp_logic), temp_logic);
   }
 
   /**
@@ -23,12 +28,12 @@ export class DragableFileFacade extends AbstractFacade {
    * @method drawClass
    * @return DragableFileDraw
    */
-  protected drawClass(): DragableFileDraw { return (this.draw_class as DragableFileDraw); }
+  protected drawClass(): DragableFileDraw { return (this._draw_class as DragableFileDraw); }
 
   /**
    * the way to access this class's logic_class
    * @method logicClass
    * @return DragableFileLogic
    */
-  protected logicClass(): DragableFileLogic { return (this.logic_class as DragableFileLogic); }
+  protected logicClass(): DragableFileLogic { return (this._logic_class as DragableFileLogic); }
 }

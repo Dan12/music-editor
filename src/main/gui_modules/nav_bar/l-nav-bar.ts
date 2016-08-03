@@ -9,6 +9,11 @@ export class NavBarLogic extends AbstractLogic {
     super(container);
   }
 
+  /**
+   * initialize the event emmiteres for the nav bar.
+   * Fire an event when the expand file browser button is clicked
+   * @method initializeEmitters
+   */
   public initializeEmitters(): void {
     EventManager.register(new ToggleFileBrowserEvent());
     $('#expand_file_browser').click(function(){
