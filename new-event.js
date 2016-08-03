@@ -59,15 +59,13 @@ export class ${all_caps}Event extends AbstractEvent {
 
 `;
 
-  var dir = 'src/main/events/'+underscores;
-  if (!fs.existsSync(dir)){
-      fs.mkdirSync(dir);
-  } else {
-    console.log('dir exists, exiting');
+  var file = 'src/main/events/'+file_name+'.ts';
+  if(fs.existsSync(file)) {
+    console.log('file exists, exiting');
     process.exit(0);
   }
 
-  fs.writeFileSync(dir+'/f-'+file_name+'.ts', template);
+  fs.writeFileSync(file, template);
 
   // console.log('template:  '+facadeTemplate);
 
