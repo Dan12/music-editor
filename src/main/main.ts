@@ -7,6 +7,7 @@
 import * as $ from 'jquery';
 
 import { MainContainerFacade } from './gui_modules/main_container/f-main-container';
+import { EventManager } from './utils/event-manager';
 
 const main_area_style = '\
 width: 100vw; \
@@ -18,4 +19,5 @@ $(document).ready(function(){
 
   let main_container = new MainContainerFacade($('#main_area'));
   main_container.initializeGui();
+  EventManager.checkEvents();
 });

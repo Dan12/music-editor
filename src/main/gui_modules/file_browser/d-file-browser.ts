@@ -8,6 +8,8 @@ import { AbstractDraw } from '../../abstracts/draw';
 const file_browser_style = '\
 width: 200px; \
 height: 85%; \
+position: relative; \
+left: -200px; \
 padding: 0; \
 background-color: rgb(220,220,220); \
 overflow-y: scroll; \

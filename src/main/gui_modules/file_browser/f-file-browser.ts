@@ -4,6 +4,9 @@ import { FileBrowserLogic } from './l-file-browser';
 
 import { DragableFileFacade } from '../dragable_file/f-dragable-file';
 
+import { EventManager } from '../../utils/event-manager';
+import { ToggleFileBrowserEvent } from '../../events/toggle-file-browser';
+
 /**
  * The facade for file browser.
  * initializes the file browser and loader
@@ -17,10 +20,16 @@ export class FileBrowserFacade extends AbstractFacade {
     super('file_browser', parent);
 
     // initialize this facade's enclosed classes
-    this.initializeClasses(new FileBrowserDraw(this.container), new FileBrowserLogic());
+    this.initializeClasses(new FileBrowserDraw(this.container), new FileBrowserLogic(this.container));
 
     for (let i = 0; i < 10; i++)
       this.addGuiChild(new DragableFileFacade(this.container));
+
+    this.initializeSubscriptions();
+  }
+
+  private initializeSubscriptions(): void {
+    EventManager.subscribe(new ToggleFileBrowserEvent(this.logicClass().toggleVisibility));
   }
 
   /**

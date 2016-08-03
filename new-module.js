@@ -100,8 +100,8 @@ export class ${all_caps}Draw extends AbstractDraw {
  */
 export class ${all_caps}Logic extends AbstractLogic {
 
-  constructor() {
-    super();
+  constructor(container: JQuery) {
+    super(container);
   }
 }
 

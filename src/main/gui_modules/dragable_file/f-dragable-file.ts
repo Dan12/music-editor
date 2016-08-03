@@ -15,7 +15,7 @@ export class DragableFileFacade extends AbstractFacade {
     super('dragable_file', parent);
 
     // initialize this facade's enclosed classes
-    this.initializeClasses(new DragableFileDraw(this.container), new DragableFileLogic());
+    this.initializeClasses(new DragableFileDraw(this.container), new DragableFileLogic(this.container));
   }
 
   /**

@@ -14,8 +14,8 @@ export class MainContainerLogic extends AbstractLogic {
    */
   private font_size_percent = 0.04;
 
-  constructor() {
-    super();
+  constructor(container: JQuery) {
+    super(container);
 
     this.initializeResize();
   }

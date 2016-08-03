@@ -26,7 +26,7 @@ export class EventManager {
    * @param event_object {AbstractEvent} the event to register
    */
   static register(event_object: AbstractEvent): void {
-    console.log('registering ' + event_object.getName());
+    console.log('registering "' + event_object.getName() + '"');
     if (EventManager.events[event_object.getName()] === undefined)
       EventManager.events[event_object.getName()] = [];
     else
@@ -67,7 +67,7 @@ export class EventManager {
   static checkEvents() {
     for (let name in EventManager.events) {
       if (EventManager.events[name].length === 0)
-        console.log('Event ' + name + ' was registered but never subscribed to');
+        console.log('Event "' + name + '" was registered but never subscribed to');
     }
     return true;
   }

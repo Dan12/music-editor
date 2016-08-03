@@ -33,7 +33,7 @@
 - [YUIDoc](http://yui.github.io/yuidoc/)
 - Getting started
 	- open a new terminal window and type the following command
-		- yuidoc --server ./lib/main
+		- yuidoc --server ./lib/src/main
 	- got to a web brower and type [localhost:3000](http://localhost:3000/)
 
 ### Security
@@ -61,6 +61,8 @@
 
 ### Tricky this
 - [This and intance methods](http://blog.johnnyreilly.com/2014/04/typescript-instance-methods.html)
+- use this when declaring functions using `this` that will be called from an event:
+	- <function name> = () => {...}
 
 ### API methodology
 - define default returns that will always be able to be handled by the rest of the application (tests)

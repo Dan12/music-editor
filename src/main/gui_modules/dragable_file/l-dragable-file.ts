@@ -7,8 +7,7 @@ import { AbstractLogic } from '../../abstracts/logic';
  */
 export class DragableFileLogic extends AbstractLogic {
 
-  constructor() {
-    super();
+  constructor(container: JQuery) {
+    super(container);
   }
 }
-

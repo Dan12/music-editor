@@ -19,7 +19,7 @@ export class MainContainerFacade extends AbstractFacade {
     super('main_container', parent);
 
     // initialize this facade's enclosed classes
-    this.initializeClasses(new MainContainerDraw(this.container), new MainContainerLogic());
+    this.initializeClasses(new MainContainerDraw(this.container), new MainContainerLogic(this.container));
 
     // add a nav bar to this container
     this.addGuiChild(new NavBarFacade(this.container));
