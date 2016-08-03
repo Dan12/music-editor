@@ -11,9 +11,10 @@ background-color: white; \
 margin: 8px; \
 padding: 5px 0; \
 height: 30px; \
+font-size: 100%; \
 border-radius: 2px; \
 cursor: -moz-grab; cursor: -webkit-grab; cursor: grab; \
-font-size: 24px; \
+overflow: hidden; \
 ';
 
 /**
@@ -26,13 +27,13 @@ font-size: 24px; \
 export class DragableFileDraw extends AbstractDraw {
 
   constructor(container: JQuery, logic_class: DragableFileLogic) {
-    super(container, logic_class);
+    super(container, logic_class, dragable_file_style);
   }
 
+  /**
+   * the way to access this class's _logic_class
+   * @method logicClass
+   * @return DragableFileLogic
+   */
   private logicClass(): DragableFileLogic { return (this._logic_class as DragableFileLogic); }
-
-  public initialize(): void {
-    this.setStyle(dragable_file_style);
-    // this.container.append('--- some element ---');
-  }
 }

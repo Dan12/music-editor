@@ -19,12 +19,8 @@ height: 100%; \
 export class MainContainerDraw extends AbstractDraw {
 
   constructor(container: JQuery, logic_class: MainContainerLogic) {
-    super(container, logic_class);
+    super(container, logic_class, main_container_style);
   }
 
   private logicClass(): MainContainerLogic { return (this._logic_class as MainContainerLogic); }
-
-  public initialize(): void {
-    this.setStyle(main_container_style);
-  }
 }

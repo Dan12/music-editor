@@ -26,13 +26,8 @@ overflow-y: scroll; \
 export class FileBrowserDraw extends AbstractDraw {
 
   constructor(container: JQuery, logic_class: FileBrowserLogic) {
-    super(container, logic_class);
+    super(container, logic_class, file_browser_style);
   }
 
   private logicClass(): FileBrowserLogic { return (this._logic_class as FileBrowserLogic); }
-
-  public initialize(): void {
-    this.setStyle(file_browser_style);
-    // this.container.append('--- some element ---');
-  }
 }

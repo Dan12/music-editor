@@ -10,7 +10,7 @@ height: 15%; \
 export class NavBarDraw extends AbstractDraw {
 
   constructor(container: JQuery, logic_class: NavBarLogic) {
-    super(container, logic_class);
+    super(container, logic_class, nav_bar_style);
   }
 
   /**
@@ -21,12 +21,11 @@ export class NavBarDraw extends AbstractDraw {
   private logicClass(): NavBarLogic { return (this._logic_class as NavBarLogic); }
 
   /**
-   * initialize this gui element with styles and additional elements
+   * add a button element to this container
+   * @method addButton
+   * @ param id {string} the id of the button
+   * @param text {string} the button's text
    */
-  public initialize(): void {
-    this.setStyle(nav_bar_style);
-  }
-
   public addButton(id: string, text: string): void {
     this.container.append(`<button id="${id}">${text}</button>`);
   }

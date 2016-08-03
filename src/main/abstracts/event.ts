@@ -3,7 +3,6 @@
  * @class AbstractEvent
  * @constructor
  * @param callback {function} The callback function which takes an object
- * @param obj {any} The optional object that means that this object hold the payload for an event
  * @param name {string} The name of this event
  */
 export abstract class AbstractEvent {

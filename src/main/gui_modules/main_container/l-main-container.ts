@@ -12,7 +12,7 @@ export class MainContainerLogic extends AbstractLogic {
    * @property font_size_percent
    * @type float
    */
-  private font_size_percent = 0.04;
+  private font_size_percent = 0.02;
 
   constructor(container: JQuery) {
     super(container);
@@ -38,6 +38,7 @@ export class MainContainerLogic extends AbstractLogic {
    * @private
    */
   private setFontSize(): void {
-    $('body').css('font-size', (window.innerHeight * this.font_size_percent) + 'px');
+    let size_comparator = window.innerHeight > window.innerWidth ? window.innerHeight : window.innerWidth;
+    $('body').css('font-size', (size_comparator * this.font_size_percent) + 'px');
   }
 }

@@ -18,6 +18,5 @@ $(document).ready(function(){
   $('body').append(`<div id="main_area" style="${main_area_style}"></div>`);
 
   let main_container = new MainContainerFacade($('#main_area'));
-  main_container.initializeGui();
   EventManager.checkEvents();
 });

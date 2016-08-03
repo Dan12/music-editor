@@ -72,14 +72,14 @@ export abstract class AbstractFacade {
    * initialize this element's children and then initialize this element's gui
    * @method initializeGui
    */
-  public initializeGui(): void {
-    // initialize all the children first because then you can prepend and append those elements
-    for (let i = 0; i < this.gui_children.length; i++) {
-        this.gui_children[i].initializeGui();
-    }
-
-    (this._draw_class as AbstractDraw).initialize();
-  }
+  // public initializeGui(): void {
+  //   // initialize all the children first because then you can prepend and append those elements
+  //   for (let i = 0; i < this.gui_children.length; i++) {
+  //       this.gui_children[i].initializeGui();
+  //   }
+  //
+  //   (this._draw_class as AbstractDraw).initialize();
+  // }
 
   /**
    * redrawing of custom canvas elements sent down the heirarchy
@@ -87,6 +87,11 @@ export abstract class AbstractFacade {
    */
   public redraw(): void {
     (this._draw_class as AbstractDraw).redraw();
+
+    // redraw all the gui elements
+    for (let i = 0; i < this.gui_children.length; i++) {
+        this.gui_children[i].redraw();
+    }
   }
 
   /**

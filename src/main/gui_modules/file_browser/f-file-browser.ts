@@ -24,7 +24,7 @@ export class FileBrowserFacade extends AbstractFacade {
     this.initializeClasses(new FileBrowserDraw(this.container, temp_logic), temp_logic);
 
     for (let i = 0; i < 10; i++)
-      this.addGuiChild(new DragableFileFacade(this.container, `file ${i}`));
+      this.addGuiChild(new DragableFileFacade(this.container, `file name is this exactly: ${i}`));
 
     this.initializeSubscriptions();
   }

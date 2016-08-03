@@ -18,19 +18,22 @@ export abstract class AbstractDraw {
   protected _logic_class: any = undefined;
 
   /**
-   * create the jquery object for this object's container
+   * create the jquery object for this object's container.
+   * Style it according to the rules in the constructor
    * @class AbstractDraw
    * @param container {JQuery} this elements id
    */
-  constructor(container: JQuery, logic_class: AbstractLogic) {
+  constructor(container: JQuery, logic_class: AbstractLogic, style: string) {
     this.container = container;
+
+    this.setStyle(style);
   }
 
   /**
    * initialize this element's html
    * @method initialize
    */
-  abstract initialize(): void;
+  // abstract initialize(): void;
 
   /**
    * @method setStyle
