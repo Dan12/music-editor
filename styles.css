@@ -1,6 +1,6 @@
 body {
     font-family: arial;
-    text-align: center;
+    overflow: hidden;
     padding: 0;
     margin: 0;
     height: 100vh;
@@ -8,7 +8,6 @@ body {
 }
 
 nav {
-  text-align: left;
   position: relative;
 }
 

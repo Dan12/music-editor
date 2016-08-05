@@ -82,7 +82,7 @@ const ${underscores}_style = '\
 export class ${all_caps}Draw extends AbstractDraw {
 
   constructor(container: JQuery, logic_class: ${all_caps}Logic) {
-    super(container, logic_class);
+    super(container, logic_class, ${underscores}_style);
   }
 
   /**
@@ -91,11 +91,6 @@ export class ${all_caps}Draw extends AbstractDraw {
    * @return NavBarLogic
    */
   private logicClass(): ${all_caps}Logic { return (this._logic_class as ${all_caps}Logic); }
-
-  public initialize(): void {
-    this.setStyle(${underscores}_style);
-    // this.container.append('--- some element ---');
-  }
 }
 
 `;

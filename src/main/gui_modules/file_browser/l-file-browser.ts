@@ -16,9 +16,9 @@ export class FileBrowserLogic extends AbstractLogic {
   public toggleVisibility = () => {
     this.visibility = !this.visibility;
     if (this.visibility) {
-      this.container.animate({ 'left': '0px'}, 200);
+      this.container.animate({ 'width': '200px'}, 200);
     } else {
-      this.container.animate({ 'left': '-200px'}, 200);
+      this.container.animate({ 'width': '0px'}, 200);
     }
   }
 }

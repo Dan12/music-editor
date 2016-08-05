@@ -25,7 +25,7 @@ function newModule(module_name) {
 
 /**
  * describes the payload for this event
- * @element NoObject
+ * @element Payload
  * @interface NoObject
  */
 // define own payload object here
@@ -40,18 +40,19 @@ export class ${all_caps}Event extends AbstractEvent {
    * @constructor
    * @param [callback] {function} The optional callback function which takes an object
    */
-  constructor(callback?: (obj: NoObject) => void) {
+  constructor(callback?: (obj: Payload) => void) {
     // the name of this event is 'testing_send'
-    super(callback, 'toggle_file_browser');
+    super(callback, '${underscores}');
   };
 
   /**
    * Sets the payload for this event, returns this
    * @method setPayload
    * @chainable
+   * @param obj {Payload} the payload for this event
    * @returns {${all_caps}Event}
    */
-  public setPayload(obj: any): ${all_caps}Event {
+  public setPayload(obj: Payload): ${all_caps}Event {
     this.obj = obj;
     return this;
   }

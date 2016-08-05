@@ -9,7 +9,7 @@ import { DragableFileLogic } from './l-dragable-file';
 const dragable_file_style = '\
 background-color: white; \
 margin: 8px; \
-padding: 5px 0; \
+padding: 5px 8px; \
 height: 30px; \
 font-size: 100%; \
 border-radius: 2px; \

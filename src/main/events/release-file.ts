@@ -5,30 +5,35 @@ import { AbstractEvent } from '../abstracts/event';
  * @element NoObject
  * @interface NoObject
  */
-export interface NoObject {}
+// define own payload object here
+export interface FilePayload {
+  element: JQuery;
+  mouseX: number;
+  mouseY: number;
+}
 
-export class ToggleFileBrowserEvent extends AbstractEvent {
+export class ReleaseFileEvent extends AbstractEvent {
 
   /**
    * Fired when the toggle file browser button is clicked
-   * @class ToggleFileBrowserEvent
+   * @class ReleaseFileEvent
    * @extends AbstractEvent
    * @constructor
    * @param [callback] {function} The optional callback function which takes an object
    */
-  constructor(callback?: (obj: NoObject) => void) {
+  constructor(callback?: (obj: FilePayload) => void) {
     // the name of this event is 'testing_send'
-    super(callback, 'toggle_file_browser');
+    super(callback, 'release_file');
   };
 
   /**
    * Sets the payload for this event, returns this
    * @method setPayload
    * @chainable
-   * @param obj {NoObject} the payload
-   * @returns {ToggleFileBrowserEvent}
+   * @param obj {FilePayload}
+   * @returns {ReleaseFileEvent}
    */
-  public setPayload(obj: NoObject): ToggleFileBrowserEvent {
+  public setPayload(obj: FilePayload): ReleaseFileEvent {
     this.obj = obj;
     return this;
   }
