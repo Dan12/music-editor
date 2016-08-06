@@ -23,19 +23,14 @@ export class DragableFileLogic extends AbstractLogic {
       let drag_left_offset = event.pageX - left;
       let drag_top_offset = event.pageY - top;
 
-      const drag_file_style = '\
-      background-color: white; \
-      padding: 5px 8px; \
-      height: 30px; \
-      width: ' + this.container.width() + 'px; \
-      font-size: 100%; \
-      border-radius: 2px; \
-      cursor: -moz-grabbing; cursor: -webkit-grabbing; cursor: grabbing; \
-      overflow: hidden; \
-      position: absolute; \
-      top: ' + top + 'px; left: ' + left + 'px \
-      ';
-      let drag_element = $(`<div style="${drag_file_style}">${this.container.html()}</div>`);
+      let drag_element = $(`<div>${this.container.html()}</div>`);
+      drag_element.attr('style', this.container.attr('style'));
+      console.log(this.container.attr('style'));
+      drag_element.css({
+        'width': this.container.width() + 'px',
+        'position': 'absolute', 'top': top + 'px', 'left': left + 'px'
+      });
+      drag_element.addClass('grabbing');
       $('body').append(drag_element);
 
       $('body').mousemove((event) => {

@@ -7,7 +7,7 @@ import { FileBrowserLogic } from './l-file-browser';
  * @for FileBrowserDraw
  */
 const file_browser_style = '\
-width: 200px; \
+width: 0; \
 height: 85%; \
 position: relative; \
 padding: 0; \

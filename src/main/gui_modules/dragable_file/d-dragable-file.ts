@@ -10,10 +10,8 @@ const dragable_file_style = '\
 background-color: white; \
 margin: 8px; \
 padding: 5px 8px; \
-height: 30px; \
-font-size: 100%; \
+font-size: 70%; \
 border-radius: 2px; \
-cursor: -moz-grab; cursor: -webkit-grab; cursor: grab; \
 overflow: hidden; \
 ';
 
@@ -28,6 +26,8 @@ export class DragableFileDraw extends AbstractDraw {
 
   constructor(container: JQuery, logic_class: DragableFileLogic) {
     super(container, logic_class, dragable_file_style);
+
+    this.container.addClass('grab');
   }
 
   /**

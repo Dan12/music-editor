@@ -20,7 +20,21 @@ button {
   border-radius: 2px;
   margin: 0 20px;
   cursor: pointer;
+}
 
+.grab {
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.grabbing {
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.vertical_align {
   /*vertical align element*/
   position: relative;
   top: 50%;

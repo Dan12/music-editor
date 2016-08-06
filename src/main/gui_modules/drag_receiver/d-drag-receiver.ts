@@ -7,7 +7,9 @@ import { DragReceiverLogic } from './l-drag-receiver';
  */
 const drag_receiver_style = '\
 background-color: rgb(220,120,120); \
-width: 300px; \
+width: 200px; \
+padding: 4px 8px; \
+text-align: center; \
 max-height: 160px; \
 overflow-y: scroll; \
 position: absolute; \

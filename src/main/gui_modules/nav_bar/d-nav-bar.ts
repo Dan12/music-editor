@@ -27,6 +27,6 @@ export class NavBarDraw extends AbstractDraw {
    * @param text {string} the button's text
    */
   public addButton(id: string, text: string): void {
-    this.container.append(`<button id="${id}">${text}</button>`);
+    this.container.append(`<button id="${id}" class="vertical_align">${text}</button>`);
   }
 }

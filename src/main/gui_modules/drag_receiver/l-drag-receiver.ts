@@ -21,14 +21,14 @@ export class DragReceiverLogic extends AbstractLogic {
     $('body').mousedown(() => { this.dragging = true; });
     $('body').mouseup(() => {
       this.dragging = false;
-      this.container.css('padding-top', '0');
+      this.container.css('padding-top', '4px');
     });
 
     $('body').mousemove((event) => {
       if (this.dragging && intersectMouse(this.container[0].getBoundingClientRect(), event)) {
         this.container.css('padding-top', '100px');
       } else {
-        this.container.css('padding-top', '0');
+        this.container.css('padding-top', '4px');
       }
     });
   }
@@ -38,8 +38,9 @@ export class DragReceiverLogic extends AbstractLogic {
     let fileRect = obj.element[0].getBoundingClientRect();
     if (intersectRect(recieveRect, fileRect)) {
       let append_element = obj.element.clone();
-      append_element.css({'position': '', 'top': '', 'left': '', 'margin': '4px'});
+      append_element.css({'position': '', 'top': '', 'left': '', 'margin': '4px 8px'});
       this.container.append(append_element);
+      append_element.removeClass('grabbing')
       $('#prompt').remove();
     }
   }

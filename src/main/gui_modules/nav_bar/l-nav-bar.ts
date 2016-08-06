@@ -15,8 +15,7 @@ export class NavBarLogic extends AbstractLogic {
    * @method initializeEmitters
    */
   public initializeEmitters(): void {
-    EventManager.register(new ToggleFileBrowserEvent());
-    $('#expand_file_browser').click(function(){
+    $('#toggle_file_browser').click(function(){
       EventManager.fireEvent((new ToggleFileBrowserEvent()).setPayload({}));
     });
   }

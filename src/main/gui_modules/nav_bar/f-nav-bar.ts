@@ -13,8 +13,8 @@ export class NavBarFacade extends AbstractFacade {
     this.initializeClasses(new NavBarDraw(this.container, temp_logic), temp_logic);
 
     // add two buttons to the nav bar
-    this.drawClass().addButton('expand_file_browser', 'Expand File Browser');
-    this.drawClass().addButton('toggle_keyboard', 'Show Keyboard');
+    this.drawClass().addButton('toggle_file_browser', 'Toggle File Browser');
+    this.drawClass().addButton('toggle_keyboard', 'Toggle Keyboard');
 
     this.logicClass().initializeEmitters();
   }
