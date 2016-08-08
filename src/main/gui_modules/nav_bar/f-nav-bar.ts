@@ -16,6 +16,7 @@ export class NavBarFacade extends AbstractFacade {
     this.drawClass().addButton('toggle_file_browser', 'Toggle File Browser');
     this.drawClass().addButton('toggle_keyboard', 'Toggle Keyboard');
 
+    // initialize event emittors for the buttons that were just added
     this.logicClass().initializeEmitters();
   }
 

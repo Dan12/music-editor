@@ -22,5 +22,10 @@ export class MainContainerDraw extends AbstractDraw {
     super(container, logic_class, main_container_style);
   }
 
+  /**
+   * the way to access this class's _logic_class
+   * @method logicClass
+   * @return MainContainerLogic
+   */
   private logicClass(): MainContainerLogic { return (this._logic_class as MainContainerLogic); }
 }

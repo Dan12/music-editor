@@ -88,7 +88,7 @@ export class ${all_caps}Draw extends AbstractDraw {
   /**
    * the way to access this class's _logic_class
    * @method logicClass
-   * @return NavBarLogic
+   * @return ${all_caps}Logic
    */
   private logicClass(): ${all_caps}Logic { return (this._logic_class as ${all_caps}Logic); }
 }

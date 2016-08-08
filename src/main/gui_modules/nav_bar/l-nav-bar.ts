@@ -3,6 +3,11 @@ import { AbstractLogic } from '../../abstracts/logic';
 import { EventManager } from '../../utils/event-manager';
 import { ToggleFileBrowserEvent } from '../../events/toggle-file-browser';
 
+/**
+ * Listens for clicks on its buttons and fires events
+ * @class NavBarLogic
+ * @constructor
+ */
 export class NavBarLogic extends AbstractLogic {
 
   constructor(container: JQuery) {

@@ -29,5 +29,10 @@ export class FileBrowserDraw extends AbstractDraw {
     super(container, logic_class, file_browser_style);
   }
 
+  /**
+   * the way to access this class's _logic_class
+   * @method logicClass
+   * @return FileBrowserLogic
+   */
   private logicClass(): FileBrowserLogic { return (this._logic_class as FileBrowserLogic); }
 }

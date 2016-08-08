@@ -23,12 +23,18 @@ export class FileBrowserFacade extends AbstractFacade {
     // initialize this facade's enclosed classes
     this.initializeClasses(new FileBrowserDraw(this.container, temp_logic), temp_logic);
 
+    // add 10 dragable files to this browser
     for (let i = 0; i < 10; i++)
       this.addGuiChild(new DragableFileFacade(this.container, `file name ${i} is this exactly: ${i}`));
 
+    // initialize the subscriptions for this class
     this.initializeSubscriptions();
   }
 
+  /**
+   * subscribe to the toggle file browser event to toggle the visibility of this element
+   * @method initializeSubscriptions
+   */
   private initializeSubscriptions(): void {
     EventManager.subscribe(new ToggleFileBrowserEvent(this.logicClass().toggleVisibility));
   }

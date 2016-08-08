@@ -7,6 +7,11 @@ width: 100%; \
 height: 15%; \
 ';
 
+/**
+ * sets this container's style and abstracts adding a button
+ * @class NavBarDraw
+ * @constructor
+ */
 export class NavBarDraw extends AbstractDraw {
 
   constructor(container: JQuery, logic_class: NavBarLogic) {

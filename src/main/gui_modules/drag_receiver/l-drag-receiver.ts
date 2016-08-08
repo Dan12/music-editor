@@ -42,6 +42,7 @@ export class DragReceiverLogic extends AbstractLogic {
       this.container.append(append_element);
       append_element.removeClass('grabbing')
       $('#prompt').remove();
+      this.container.scrollTop(50);
     }
   }
 }
