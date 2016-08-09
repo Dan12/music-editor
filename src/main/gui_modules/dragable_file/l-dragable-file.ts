@@ -1,5 +1,6 @@
 import { AbstractLogic } from '../../abstracts/logic';
 import { ReleaseFileEvent} from '../../events/release-file';
+import { DragFileEvent } from '../../events/drag-file';
 import { EventManager } from '../../utils/event-manager';
 
 /**
@@ -43,17 +44,19 @@ export class DragableFileLogic extends AbstractLogic {
       // TODO: remove this listener
       // listen for mouse move on the body and move the element into that position
       $('body').mousemove((event) => {
+        console.log('moved '+JSON.stringify(this.container))
         let x = event.pageX - drag_left_offset;
         let y = event.pageY - drag_top_offset;
         drag_element.css({'top': y + 'px', 'left': x + 'px'});
+        EventManager.fireEvent((new DragFileEvent).setPayload({element: drag_element, mouseX: event.pageX, mouseY: event.pageY}));
         event.preventDefault();
       });
 
       // fire the release file event on mouse up for this element to register a drag and drop
       drag_element.mouseup((event) => {
         EventManager.fireEvent((new ReleaseFileEvent).setPayload({element: drag_element, mouseX: event.pageX, mouseY: event.pageY}));
-        drag_element.remove();
-        drag_element = null;
+        // drag_element.remove();
+        // drag_element = null;
       });
 
       // prevent highlighting on dragging

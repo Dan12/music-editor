@@ -26,10 +26,10 @@ function newModule(module_name) {
 /**
  * describes the payload for this event
  * @element Payload
- * @interface NoObject
+ * @interface Payload
  */
 // define own payload object here
-export interface NoObject {}
+export interface Payload {}
 
 export class ${all_caps}Event extends AbstractEvent {
 

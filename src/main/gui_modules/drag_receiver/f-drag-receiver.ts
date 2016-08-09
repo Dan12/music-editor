@@ -3,7 +3,8 @@ import { DragReceiverDraw } from './d-drag-receiver';
 import { DragReceiverLogic } from './l-drag-receiver';
 
 import { EventManager } from '../../utils/event-manager';
-import { ReleaseFileEvent, FilePayload } from '../../events/release-file';
+import { ReleaseFileEvent } from '../../events/release-file';
+import { DragFileEvent } from '../../events/drag-file';
 
 /**
  * The facade for drag receiver.
@@ -22,11 +23,8 @@ export class DragReceiverFacade extends AbstractFacade {
     // initialize this facade's enclosed classes
     this.initializeClasses(new DragReceiverDraw(this.container, temp_logic), temp_logic);
 
-    EventManager.subscribe(new ReleaseFileEvent(this.recieveFile));
-  }
-
-  public recieveFile = (obj: FilePayload) => {
-    this.logicClass().receiveFile(obj);
+    EventManager.subscribe(new ReleaseFileEvent(this.logicClass().receiveFile));
+    EventManager.subscribe(new DragFileEvent(this.logicClass().dragableFileDragged));
   }
 
   /**
