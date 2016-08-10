@@ -1,6 +1,15 @@
 import { AbstractLogic } from '../../abstracts/logic';
 
 /**
+ * @property main_container_style
+ * @for MainContainerLogic
+ */
+const main_container_style = {
+'width': '100%',
+'height': '100%'
+};
+
+/**
  * Controls the general actions that happen on the page and only changes overarching elements.
  * @class MainContainerLogic
  * @constructor
@@ -15,7 +24,7 @@ export class MainContainerLogic extends AbstractLogic {
   private font_size_percent = 0.02;
 
   constructor(container: JQuery) {
-    super(container);
+    super(container, main_container_style);
 
     this.initializeResize();
   }

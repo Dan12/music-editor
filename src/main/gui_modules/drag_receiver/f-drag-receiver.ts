@@ -1,5 +1,4 @@
 import { AbstractFacade } from '../../abstracts/facade';
-import { DragReceiverDraw } from './d-drag-receiver';
 import { DragReceiverLogic } from './l-drag-receiver';
 
 import { EventManager } from '../../utils/event-manager';
@@ -18,26 +17,18 @@ export class DragReceiverFacade extends AbstractFacade {
   constructor(parent: JQuery) {
     super('drag_receiver', parent);
 
-    let temp_logic = new DragReceiverLogic(this.container);
-
     // initialize this facade's enclosed classes
-    this.initializeClasses(new DragReceiverDraw(this.container, temp_logic), temp_logic);
+    this.initializeLogic(new DragReceiverLogic(this.container));
 
     EventManager.subscribe(new ReleaseFileEvent(this.logicClass().receiveFile));
     EventManager.subscribe(new DragFileEvent(this.logicClass().dragableFileDragged));
   }
 
   /**
-   * the way to access this class's _draw_class
-   * @method drawClass
-   * @return DragReceiverDraw
-   */
-  protected drawClass(): DragReceiverDraw { return (this._draw_class as DragReceiverDraw); }
-
-  /**
    * the way to access this class's _logic_class
    * @method logicClass
    * @return DragReceiverLogic
+   * @protected
    */
   protected logicClass(): DragReceiverLogic { return (this._logic_class as DragReceiverLogic); }
 }

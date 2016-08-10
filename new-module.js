@@ -22,7 +22,6 @@ function newModule(module_name) {
 
   var facadeTemplate =
 `import { AbstractFacade } from '../../abstracts/facade';
-import { ${all_caps}Draw } from './d-${file_name}';
 import { ${all_caps}Logic } from './l-${file_name}';
 
 /**
@@ -40,61 +39,28 @@ export class ${all_caps}Facade extends AbstractFacade {
     let temp_logic = new ${all_caps}Logic(this.container);
 
     // initialize this facade's enclosed classes
-    this.initializeClasses(new ${all_caps}Draw(this.container, temp_logic), temp_logic);
+    this.initializeLogic(new ${all_caps}Logic(this.container));
   }
-
-  /**
-   * the way to access this class's _draw_class
-   * @method drawClass
-   * @return ${all_caps}Draw
-   */
-  protected drawClass(): ${all_caps}Draw { return (this._draw_class as ${all_caps}Draw); }
 
   /**
    * the way to access this class's _logic_class
    * @method logicClass
    * @return ${all_caps}Logic
+   * @protected
    */
   protected logicClass(): ${all_caps}Logic { return (this._logic_class as ${all_caps}Logic); }
 }
 `;
 
-  var drawTemplate =
-`import { AbstractDraw } from '../../abstracts/draw';
-import { ${all_caps}Logic } from './l-${file_name}';
+  var logicTemplate =
+`import { AbstractLogic } from '../../abstracts/logic';
 
 /**
  * --- optional, some style ---
  * @property ${underscores}_style
- * @for ${all_caps}Draw
+ * @for ${all_caps}Logic
  */
 const ${underscores}_style = {}
-
-/**
- * This class draws the elements for ${module_name}
- * --- some description ---
- * @class ${all_caps}Draw
- * @constructor
- * @param container {string} the container id for this class
- */
-export class ${all_caps}Draw extends AbstractDraw {
-
-  constructor(container: JQuery, logic_class: ${all_caps}Logic) {
-    super(container, logic_class, ${underscores}_style);
-  }
-
-  /**
-   * the way to access this class's _logic_class
-   * @method logicClass
-   * @return ${all_caps}Logic
-   */
-  private logicClass(): ${all_caps}Logic { return (this._logic_class as ${all_caps}Logic); }
-}
-
-`;
-
-  var logicTemplate =
-`import { AbstractLogic } from '../../abstracts/logic';
 
 /**
  * --- some description ---
@@ -104,7 +70,7 @@ export class ${all_caps}Draw extends AbstractDraw {
 export class ${all_caps}Logic extends AbstractLogic {
 
   constructor(container: JQuery) {
-    super(container);
+    super(container, ${underscores}_style);
   }
 }
 
@@ -119,8 +85,6 @@ export class ${all_caps}Logic extends AbstractLogic {
   }
 
   fs.writeFileSync(dir+'/f-'+file_name+'.ts', facadeTemplate);
-
-  fs.writeFileSync(dir+'/d-'+file_name+'.ts', drawTemplate);
 
   fs.writeFileSync(dir+'/l-'+file_name+'.ts', logicTemplate);
 

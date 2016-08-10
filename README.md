@@ -102,7 +102,7 @@
 		- All variables
 		- Emits events
 		- May depend upon utility modules if logic must be split over multiple files
-	- Draw layer
+	- optional Draw layer
 		- all draw code
 		- accesses logic layer for variables relating to draw code
 - Standalone Container
@@ -120,11 +120,11 @@
 - f_{some_object}.ts
 	- init (creator_object)
 		- call initializers for objects that this is the container for in the heirarchy
-		- initialize Draw layer object
 		- initialize Logic layer object
+		- initialize Draw layer object if applicable
 		- Register all events and
-- d_{some_object}.ts
 - l_{some_object}.ts
+- [d_{some_object}.ts]
 
 ### Module List
 - Sound module

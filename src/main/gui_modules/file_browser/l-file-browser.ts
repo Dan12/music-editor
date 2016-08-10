@@ -1,6 +1,21 @@
 import { AbstractLogic } from '../../abstracts/logic';
 
 /**
+ * --- optional, some style ---
+ * @property file_browser_style
+ * @for FileBrowserLogic
+ */
+const file_browser_style = {
+'width': '0',
+'height': '85%',
+'position': 'relative',
+'padding': '0',
+'background-color': 'rgb(220,220,220)',
+'overflow-y': 'scroll',
+'display': 'inline-block',
+};
+
+/**
  * --- some description ---
  * @class FileBrowserLogic
  * @constructor
@@ -13,7 +28,7 @@ export class FileBrowserLogic extends AbstractLogic {
   public width = '15%';
 
   constructor(container: JQuery) {
-    super(container);
+    super(container, file_browser_style);
   }
 
   /**

@@ -6,6 +6,20 @@ import { EventManager } from '../../utils/event-manager';
 // TODO: multiple file select, own standalone object?
 
 /**
+ * --- optional, some style ---
+ * @property dragable_file_style
+ * @for DragableFileLogic
+ */
+const dragable_file_style = {
+'background-color': 'white',
+'margin': '8px',
+'padding': '5px 8px',
+'font-size': '100%',
+'border-radius': '2px',
+'overflow': 'hidden',
+};
+
+/**
  * controls when this file gets dragged and fires a release event
  * @class DragableFileLogic
  * @constructor
@@ -13,9 +27,20 @@ import { EventManager } from '../../utils/event-manager';
 export class DragableFileLogic extends AbstractLogic {
 
   constructor(container: JQuery) {
-    super(container);
+    super(container, dragable_file_style);
+
+    this.initializeGUI();
 
     this.initializeActions();
+  }
+
+  /**
+   * initialize the rest of the gui for this element
+   * @method initializeGUI
+   * @private
+   */
+  private initializeGUI() {
+    this.container.addClass('grab');
   }
 
   /**

@@ -1,5 +1,4 @@
 import { AbstractFacade } from '../../abstracts/facade';
-import { DragableFileDraw } from './d-dragable-file';
 import { DragableFileLogic } from './l-dragable-file';
 
 /**
@@ -17,23 +16,15 @@ export class DragableFileFacade extends AbstractFacade {
     // setting file button html contents
     this.container.html(name);
 
-    let temp_logic = new DragableFileLogic(this.container);
-
     // initialize this facade's enclosed classes
-    this.initializeClasses(new DragableFileDraw(this.container, temp_logic), temp_logic);
+    this.initializeLogic(new DragableFileLogic(this.container));
   }
-
-  /**
-   * the way to access this class's draw_class
-   * @method drawClass
-   * @return DragableFileDraw
-   */
-  protected drawClass(): DragableFileDraw { return (this._draw_class as DragableFileDraw); }
 
   /**
    * the way to access this class's logic_class
    * @method logicClass
    * @return DragableFileLogic
+   * @protected
    */
   protected logicClass(): DragableFileLogic { return (this._logic_class as DragableFileLogic); }
 }

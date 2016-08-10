@@ -1,1 +1,1 @@
-tslint -c tslint.json src/main/*.ts src/test/*.ts
+tslint -c tslint.json src/main/**/**/*.ts src/main/**/*.ts src/main/*.ts

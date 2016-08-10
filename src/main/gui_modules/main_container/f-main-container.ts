@@ -1,9 +1,9 @@
 import { AbstractFacade } from '../../abstracts/facade';
-import { MainContainerDraw } from './d-main-container';
 import { MainContainerLogic } from './l-main-container';
 
 import { NavBarFacade } from '../nav_bar/f-nav-bar';
 import { FileBrowserFacade } from '../file_browser/f-file-browser';
+import { DragReceiverFacade } from '../drag_receiver/f-drag-receiver';
 import { KeyboardContainerFacade } from '../keyboard_container/f-keyboard-container';
 
 /**
@@ -19,22 +19,15 @@ export class MainContainerFacade extends AbstractFacade {
   constructor(parent: JQuery) {
     super('main_container', parent);
 
-    let temp_logic = new MainContainerLogic(this.container);
     // initialize this facade's enclosed classes
-    this.initializeClasses(new MainContainerDraw(this.container, temp_logic), temp_logic);
+    this.initializeLogic(new MainContainerLogic(this.container));
 
     // add a nav bar to this container
     this.addGuiChild(new NavBarFacade(this.container));
     this.addGuiChild(new FileBrowserFacade(this.container));
+    this.addGuiChild(new DragReceiverFacade(this.container));
     this.addGuiChild(new KeyboardContainerFacade(this.container));
   }
-
-  /**
-   * the way to access this class's draw_class
-   * @method drawClass
-   * @return NavBarDraw
-   */
-  protected drawClass(): MainContainerDraw { return (this._draw_class as MainContainerDraw); }
 
   /**
    * the way to access this class's logic_class

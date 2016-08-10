@@ -3,6 +3,21 @@ import { FilePayload } from '../../events/release-file';
 import { intersectRect } from '../../utils/math';
 
 /**
+ * @property drag_receiver_style
+ * @for DragReceiverLogic
+ */
+const drag_receiver_style = {
+'background-color': 'rgb(220,120,120)',
+'width': '200px',
+'text-align': 'center',
+'max-height': '160px',
+'overflow-y': 'scroll',
+'position': 'absolute',
+'bottom': '0px',
+'display': 'inline-block'
+};
+
+/**
  * listens for
  * @class DragReceiverLogic
  * @constructor
@@ -15,14 +30,28 @@ export class DragReceiverLogic extends AbstractLogic {
   public padding = 4;
 
   constructor(container: JQuery) {
-    super(container);
+    super(container, drag_receiver_style);
+
+    this.initializeGUI();
 
     this.initializeActions();
   }
 
   /**
+   * initialize the rest of the gui for this element
+   * @method initializeGUI
+   * @private
+   */
+  private initializeGUI() {
+    this.container.css({'padding': this.padding + 'px 8px'});
+
+    this.container.append('<p id="prompt" style="margin: 0;">Drop Here</p>');
+  }
+
+  /**
    * initialize the mouse event listeners for this element to prompt for drop
    * @method initializeActions
+   * @private
    */
   private initializeActions(): void {
     $('body').mousedown(() => { this.dragging = true; });
@@ -65,7 +94,7 @@ export class DragReceiverLogic extends AbstractLogic {
       this.container.append(append_element);
 
       // scroll the container to the bottom
-      this.container.scrollTop(this.container[0].scrollHeight);
+      this.container.scrollTop(this.container[0].scrollHeight); 
 
       // get the bounding rectangle of the appended element
       let rect = append_element[0].getBoundingClientRect();

@@ -1,5 +1,4 @@
 import { AbstractFacade } from '../../abstracts/facade';
-import { KeyboardContainerDraw } from './d-keyboard-container';
 import { KeyboardContainerLogic } from './l-keyboard-container';
 import { EventManager } from '../../utils/event-manager';
 import { ToggleKeyboardEvent } from '../../events/toggle-keyboard';
@@ -18,10 +17,8 @@ export class KeyboardContainerFacade extends AbstractFacade {
   constructor(parent: JQuery) {
     super('keyboard_container', parent);
 
-    let temp_logic = new KeyboardContainerLogic(this.container);
-
     // initialize this facade's enclosed classes
-    this.initializeClasses(new KeyboardContainerDraw(this.container, temp_logic), temp_logic);
+    this.initializeLogic(new KeyboardContainerLogic(this.container));
 
     EventManager.subscribe(new ToggleKeyboardEvent(this.logicClass().toggleVisibility));
 
@@ -32,13 +29,6 @@ export class KeyboardContainerFacade extends AbstractFacade {
         this.addGuiChild(new KeyboardKeyFacade(row, `${r * 12 + i}`));
     }
   }
-
-  /**
-   * the way to access this class's _draw_class
-   * @method drawClass
-   * @return KeyboardContainerDraw
-   */
-  protected drawClass(): KeyboardContainerDraw { return (this._draw_class as KeyboardContainerDraw); }
 
   /**
    * the way to access this class's _logic_class

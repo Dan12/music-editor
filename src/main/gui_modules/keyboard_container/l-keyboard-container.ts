@@ -1,6 +1,20 @@
 import { AbstractLogic } from '../../abstracts/logic';
 
 /**
+ * --- optional, some style ---
+ * @property keyboard_container_style
+ * @for KeyboardContainerLogic
+ */
+const keyboard_container_style = {
+'height': '85%',
+'width': '79%',
+'display': 'inline-block',
+'position': 'absolute',
+'text-align': 'center',
+'padding': '3%'
+};
+
+/**
  * --- some description ---
  * @class KeyboardContainerLogic
  * @constructor
@@ -11,7 +25,7 @@ export class KeyboardContainerLogic extends AbstractLogic {
   private animation_duration = 300;
 
   constructor(container: JQuery) {
-    super(container);
+    super(container, keyboard_container_style);
   }
 
   /**

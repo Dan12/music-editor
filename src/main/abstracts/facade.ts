@@ -1,15 +1,6 @@
-import { AbstractDraw } from './draw';
 import { AbstractLogic } from './logic';
 
 export abstract class AbstractFacade {
-  /**
-   * this facade's draw class
-   * set to type any to allow custom methods
-   * @property _draw_class
-   * @type AbstractDraw
-   * @default undefined
-   */
-  protected _draw_class: any = undefined;
 
   /**
    * this facade's logic class
@@ -63,35 +54,8 @@ export abstract class AbstractFacade {
     parent.append(this.container);
   }
 
-  protected initializeClasses(draw_class: AbstractDraw, logic_class: AbstractLogic): void {
-    this._draw_class = draw_class;
+  protected initializeLogic(logic_class: AbstractLogic): void {
     this._logic_class = logic_class;
-  }
-
-  /**
-   * initialize this element's children and then initialize this element's gui
-   * @method initializeGui
-   */
-  // public initializeGui(): void {
-  //   // initialize all the children first because then you can prepend and append those elements
-  //   for (let i = 0; i < this.gui_children.length; i++) {
-  //       this.gui_children[i].initializeGui();
-  //   }
-  //
-  //   (this._draw_class as AbstractDraw).initialize();
-  // }
-
-  /**
-   * redrawing of custom canvas elements sent down the heirarchy
-   * @method redraw
-   */
-  public redraw(): void {
-    (this._draw_class as AbstractDraw).redraw();
-
-    // redraw all the gui elements
-    for (let i = 0; i < this.gui_children.length; i++) {
-        this.gui_children[i].redraw();
-    }
   }
 
   /**
@@ -103,6 +67,5 @@ export abstract class AbstractFacade {
     this.gui_children.push(facade);
   }
 
-  protected abstract drawClass(): any;
   protected abstract logicClass(): any;
 }

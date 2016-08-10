@@ -15,7 +15,8 @@ export abstract class AbstractLogic {
    * @class AbstractLogic
    * @param container {JQuery} this elements id
    */
-  constructor(container: JQuery) {
+  constructor(container: JQuery, style: Object) {
     this.container = container;
+    this.container.css(style);
   }
 }

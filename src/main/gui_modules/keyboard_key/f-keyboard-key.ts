@@ -1,5 +1,4 @@
 import { AbstractFacade } from '../../abstracts/facade';
-import { KeyboardKeyDraw } from './d-keyboard-key';
 import { KeyboardKeyLogic } from './l-keyboard-key';
 
 /**
@@ -17,17 +16,10 @@ export class KeyboardKeyFacade extends AbstractFacade {
     let temp_logic = new KeyboardKeyLogic(this.container);
 
     // initialize this facade's enclosed classes
-    this.initializeClasses(new KeyboardKeyDraw(this.container, temp_logic), temp_logic);
+    this.initializeLogic(new KeyboardKeyLogic(this.container));
 
     this.container.html(id);
   }
-
-  /**
-   * the way to access this class's _draw_class
-   * @method drawClass
-   * @return KeyboardKeyDraw
-   */
-  protected drawClass(): KeyboardKeyDraw { return (this._draw_class as KeyboardKeyDraw); }
 
   /**
    * the way to access this class's _logic_class
