@@ -6,14 +6,14 @@ import { DragableFileLogic } from './l-dragable-file';
  * @property dragable_file_style
  * @for DragableFileDraw
  */
-const dragable_file_style = '\
-background-color: white; \
-margin: 8px; \
-padding: 5px 8px; \
-font-size: 70%; \
-border-radius: 2px; \
-overflow: hidden; \
-';
+const dragable_file_style = {
+'background-color': 'white',
+'margin': '8px',
+'padding': '5px 8px',
+'font-size': '100%',
+'border-radius': '2px',
+'overflow': 'hidden',
+};
 
 /**
  * This class draws the elements for dragable file

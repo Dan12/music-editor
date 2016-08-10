@@ -10,7 +10,7 @@ export class FileBrowserLogic extends AbstractLogic {
   private visibility = false;
   private animation_duration = 200;
 
-  public width = 200;
+  public width = '15%';
 
   constructor(container: JQuery) {
     super(container);
@@ -24,7 +24,7 @@ export class FileBrowserLogic extends AbstractLogic {
   public toggleVisibility = () => {
     this.visibility = !this.visibility;
     if (this.visibility) {
-      this.container.animate({ 'width': this.width + 'px'}, this.animation_duration);
+      this.container.animate({ 'width': this.width}, this.animation_duration);
     } else {
       this.container.animate({ 'width': '0px'}, this.animation_duration);
     }

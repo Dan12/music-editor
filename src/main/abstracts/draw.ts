@@ -23,7 +23,7 @@ export abstract class AbstractDraw {
    * @class AbstractDraw
    * @param container {JQuery} this elements id
    */
-  constructor(container: JQuery, logic_class: AbstractLogic, style: string) {
+  constructor(container: JQuery, logic_class: AbstractLogic, style: Object) {
     this.container = container;
 
     this.setStyle(style);
@@ -42,8 +42,8 @@ export abstract class AbstractDraw {
    * @example
    *     this.setStyle('font-size: 10px; color: red;')
    */
-  protected setStyle(style: string): void {
-    this.container.attr('style', style);
+  protected setStyle(style: Object): void {
+    this.container.css(style);
   }
 
   /**

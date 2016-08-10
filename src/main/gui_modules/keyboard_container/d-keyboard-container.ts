@@ -6,14 +6,14 @@ import { KeyboardContainerLogic } from './l-keyboard-container';
  * @property keyboard_container_style
  * @for KeyboardContainerDraw
  */
-const keyboard_container_style = '\
-height: 85%; \
-width: 100%; \
-display: inline-block; \
-position: absolute; \
-text-align: center; \
-top: -100%; \
-';
+const keyboard_container_style = {
+'height': '85%',
+'width': '79%',
+'display': 'inline-block',
+'position': 'absolute',
+'text-align': 'center',
+'padding': '3%'
+};
 
 /**
  * This class draws the elements for keyboard container
@@ -26,8 +26,6 @@ export class KeyboardContainerDraw extends AbstractDraw {
 
   constructor(container: JQuery, logic_class: KeyboardContainerLogic) {
     super(container, logic_class, keyboard_container_style);
-
-    this.container.append('<h2>hi</h2>')
   }
 
   /**

@@ -4,6 +4,8 @@ import { KeyboardContainerLogic } from './l-keyboard-container';
 import { EventManager } from '../../utils/event-manager';
 import { ToggleKeyboardEvent } from '../../events/toggle-keyboard';
 
+import { KeyboardKeyFacade } from '../keyboard_key/f-keyboard-key';
+
 /**
  * The facade for keyboard container.
  * --- Some description here ---
@@ -22,6 +24,13 @@ export class KeyboardContainerFacade extends AbstractFacade {
     this.initializeClasses(new KeyboardContainerDraw(this.container, temp_logic), temp_logic);
 
     EventManager.subscribe(new ToggleKeyboardEvent(this.logicClass().toggleVisibility));
+
+    for (let r = 0; r < 4; r++) {
+      let row = $(`<div id="row_${r}"></div>`);
+      this.container.append(row);
+      for (let i = 0; i < 12; i++)
+        this.addGuiChild(new KeyboardKeyFacade(row, `${r * 12 + i}`));
+    }
   }
 
   /**

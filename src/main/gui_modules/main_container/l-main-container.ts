@@ -27,9 +27,7 @@ export class MainContainerLogic extends AbstractLogic {
    */
   private initializeResize(): void {
     this.setFontSize();
-    $(window).resize(() => {
-      this.setFontSize();
-    });
+    $(window).resize(this.setFontSize);
   }
 
   /**
@@ -37,7 +35,7 @@ export class MainContainerLogic extends AbstractLogic {
    * @method setFontSize
    * @private
    */
-  private setFontSize(): void {
+  private setFontSize = (): void => {
     let size_comparator = window.innerHeight > window.innerWidth ? window.innerHeight : window.innerWidth;
     $('body').css('font-size', (size_comparator * this.font_size_percent) + 'px');
   }

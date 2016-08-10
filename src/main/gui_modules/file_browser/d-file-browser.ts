@@ -6,15 +6,15 @@ import { FileBrowserLogic } from './l-file-browser';
  * @property file_browser_style
  * @for FileBrowserDraw
  */
-const file_browser_style = '\
-width: 0; \
-height: 85%; \
-position: relative; \
-padding: 0; \
-background-color: rgb(220,220,220); \
-overflow-y: scroll; \
-display: inline-block; \
-';
+const file_browser_style = {
+'width': '0',
+'height': '85%',
+'position': 'relative',
+'padding': '0',
+'background-color': 'rgb(220,220,220)',
+'overflow-y': 'scroll',
+'display': 'inline-block',
+};
 
 /**
  * This class draws the elements for file browser

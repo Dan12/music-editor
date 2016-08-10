@@ -1,11 +1,11 @@
 import { AbstractDraw } from '../../abstracts/draw';
 import { NavBarLogic } from './l-nav-bar';
 
-const nav_bar_style = '\
-background-color: rgb(230,230,230); \
-width: 100%; \
-height: 15%; \
-';
+const nav_bar_style = {
+'background-color': 'rgb(230,230,230)',
+'width': '100%',
+'height': '15%'
+};
 
 /**
  * sets this container's style and abstracts adding a button

@@ -68,9 +68,7 @@ import { ${all_caps}Logic } from './l-${file_name}';
  * @property ${underscores}_style
  * @for ${all_caps}Draw
  */
-const ${underscores}_style = '\
-\
-';
+const ${underscores}_style = {}
 
 /**
  * This class draws the elements for ${module_name}

@@ -5,16 +5,16 @@ import { DragReceiverLogic } from './l-drag-receiver';
  * @property drag_receiver_style
  * @for DragReceiverDraw
  */
-const drag_receiver_style = '\
-background-color: rgb(220,120,120); \
-width: 200px; \
-text-align: center; \
-max-height: 160px; \
-overflow-y: scroll; \
-position: absolute; \
-bottom: 0px; \
-display: inline-block; \
-';
+const drag_receiver_style = {
+'background-color': 'rgb(220,120,120)',
+'width': '200px',
+'text-align': 'center',
+'max-height': '160px',
+'overflow-y': 'scroll',
+'position': 'absolute',
+'bottom': '0px',
+'display': 'inline-block'
+};
 
 /**
  * This class draws the elements for drag receiver
@@ -26,8 +26,8 @@ display: inline-block; \
 export class DragReceiverDraw extends AbstractDraw {
 
   constructor(container: JQuery, logic_class: DragReceiverLogic) {
-    let style_addition = 'padding: ' + logic_class.padding + 'px 8px';
-    super(container, logic_class, drag_receiver_style + style_addition);
+    let style_addition = {'padding': logic_class.padding + 'px 8px'};
+    super(container, logic_class, $.extend(drag_receiver_style, style_addition));
 
     this.container.append('<p id="prompt" style="margin: 0;">Drop Here</p>');
   }

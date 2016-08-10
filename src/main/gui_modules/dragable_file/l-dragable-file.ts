@@ -3,6 +3,8 @@ import { ReleaseFileEvent} from '../../events/release-file';
 import { DragFileEvent } from '../../events/drag-file';
 import { EventManager } from '../../utils/event-manager';
 
+// TODO: multiple file select, own standalone object?
+
 /**
  * controls when this file gets dragged and fires a release event
  * @class DragableFileLogic
