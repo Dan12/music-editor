@@ -8,7 +8,7 @@ import { AbstractLogic } from '../../abstracts/logic';
 export class FileBrowserLogic extends AbstractLogic {
 
   private visibility = false;
-  private animationDuration = 200;
+  private animation_duration = 200;
 
   public width = 200;
 
@@ -24,9 +24,9 @@ export class FileBrowserLogic extends AbstractLogic {
   public toggleVisibility = () => {
     this.visibility = !this.visibility;
     if (this.visibility) {
-      this.container.animate({ 'width': this.width + 'px'}, this.animationDuration);
+      this.container.animate({ 'width': this.width + 'px'}, this.animation_duration);
     } else {
-      this.container.animate({ 'width': '0px'}, this.animationDuration);
+      this.container.animate({ 'width': '0px'}, this.animation_duration);
     }
   }
 }

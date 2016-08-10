@@ -2,6 +2,7 @@ import { AbstractLogic } from '../../abstracts/logic';
 
 import { EventManager } from '../../utils/event-manager';
 import { ToggleFileBrowserEvent } from '../../events/toggle-file-browser';
+import { ToggleKeyboardEvent } from '../../events/toggle-keyboard';
 
 /**
  * Listens for clicks on its buttons and fires events
@@ -22,6 +23,10 @@ export class NavBarLogic extends AbstractLogic {
   public initializeEmitters(): void {
     $('#toggle_file_browser').click(function(){
       EventManager.fireEvent((new ToggleFileBrowserEvent()).setPayload({}));
+    });
+
+    $('#toggle_keyboard').click(function(){
+      EventManager.fireEvent((new ToggleKeyboardEvent()).setPayload({}));
     });
   }
 }

@@ -41,22 +41,22 @@ export class DragableFileLogic extends AbstractLogic {
       drag_element.addClass('grabbing');
       $('body').append(drag_element);
 
-      // TODO: remove this listener
       // listen for mouse move on the body and move the element into that position
-      $('body').mousemove((event) => {
-        console.log('moved '+JSON.stringify(this.container))
+      function bodyMove(event: JQueryMouseEventObject){
         let x = event.pageX - drag_left_offset;
         let y = event.pageY - drag_top_offset;
         drag_element.css({'top': y + 'px', 'left': x + 'px'});
         EventManager.fireEvent((new DragFileEvent).setPayload({element: drag_element, mouseX: event.pageX, mouseY: event.pageY}));
         event.preventDefault();
-      });
+      }
+      $('body').mousemove(bodyMove);
 
       // fire the release file event on mouse up for this element to register a drag and drop
       drag_element.mouseup((event) => {
         EventManager.fireEvent((new ReleaseFileEvent).setPayload({element: drag_element, mouseX: event.pageX, mouseY: event.pageY}));
-        // drag_element.remove();
-        // drag_element = null;
+        // remove the event listeners
+        drag_element.unbind();
+        $('body').unbind('mousemove', bodyMove);
       });
 
       // prevent highlighting on dragging

@@ -4,7 +4,7 @@ import { MainContainerLogic } from './l-main-container';
 
 import { NavBarFacade } from '../nav_bar/f-nav-bar';
 import { FileBrowserFacade } from '../file_browser/f-file-browser';
-import { DragReceiverFacade } from '../drag_receiver/f-drag-receiver';
+import { KeyboardContainerFacade } from '../keyboard_container/f-keyboard-container';
 
 /**
  * The facade for the main container.
@@ -26,7 +26,7 @@ export class MainContainerFacade extends AbstractFacade {
     // add a nav bar to this container
     this.addGuiChild(new NavBarFacade(this.container));
     this.addGuiChild(new FileBrowserFacade(this.container));
-    this.addGuiChild(new DragReceiverFacade(this.container));
+    this.addGuiChild(new KeyboardContainerFacade(this.container));
   }
 
   /**
