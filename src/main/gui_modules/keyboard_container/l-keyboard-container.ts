@@ -6,11 +6,11 @@ import { AbstractLogic } from '../../abstracts/logic';
  * @for KeyboardContainerLogic
  */
 const keyboard_container_style = {
-  'height': '85%',
+  'height': '100%',
   'display': 'inline-block',
-  'position': 'absolute',
+  'width': '100%',
   'text-align': 'center',
-  'padding': '3% 0'
+  'position': 'relative'
 };
 
 /**
@@ -26,22 +26,14 @@ export class KeyboardContainerLogic extends AbstractLogic {
   constructor(container: JQuery) {
     super(container, keyboard_container_style);
 
-    this.container.css('top', this.visibility ? '15%' : '-100%');
-
-    this.setWidth();
-    $(window).resize(this.setWidth);
-  }
-
-  public setWidth = (): void  => {
-    let left = this.container[0].getBoundingClientRect().left;
-    this.container.animate({'width': (window.innerWidth - left) + 'px'}, 100);
+    this.container.css('top', this.visibility ? '0' : '-100%');
   }
 
   /**
    * toggle this element's visibility by animating it up and down
    */
   public toggleVisibility = ({}): void => {
-    let top_to = this.visibility ? '-100%' : '15%';
+    let top_to = this.visibility ? '-100%' : '0';
     this.visibility = !this.visibility;
     this.container.animate({'top': top_to}, this.animation_duration);
   }

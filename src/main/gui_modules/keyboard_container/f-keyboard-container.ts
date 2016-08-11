@@ -29,6 +29,8 @@ export class KeyboardContainerFacade extends AbstractFacade {
       for (let i = 0; i < 12; i++)
         this.addGuiChild(new KeyboardKeyFacade(row, `${r * 12 + i}`));
     }
+
+    $('#row_0').css('margin-top', '1.5%');
   }
 
   /**

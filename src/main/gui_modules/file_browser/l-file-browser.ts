@@ -12,7 +12,8 @@ const file_browser_style = {
   'padding': '0',
   'background-color': 'rgb(220,220,220)',
   'overflow-y': 'scroll',
-  'display': 'inline-block'
+  'display': 'inline-block',
+  'float': 'left'
 };
 
 /**

@@ -25,8 +25,12 @@ export class MainContainerFacade extends AbstractFacade {
     // add a nav bar to this container
     this.addGuiChild(new NavBarFacade(this.container));
     this.addGuiChild(new FileBrowserFacade(this.container));
-    this.addGuiChild(new KeyboardContainerFacade(this.container));
-    this.addGuiChild(new SoundContainerToolbarFacade(this.container));
+
+    let central_container = $('<div style="overflow: hidden; height: 85%;"></div>');
+
+    this.container.append(central_container);
+    this.addGuiChild(new KeyboardContainerFacade(central_container));
+    this.addGuiChild(new SoundContainerToolbarFacade(central_container));
   }
 
   /**
