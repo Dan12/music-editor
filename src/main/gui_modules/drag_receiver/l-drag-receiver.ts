@@ -7,14 +7,14 @@ import { intersectRect } from '../../utils/math';
  * @for DragReceiverLogic
  */
 const drag_receiver_style = {
-'background-color': 'rgb(220,120,120)',
-'width': '200px',
-'text-align': 'center',
-'max-height': '160px',
-'overflow-y': 'scroll',
-'position': 'absolute',
-'bottom': '0px',
-'display': 'inline-block'
+  'background-color': 'rgb(220,120,120)',
+  'width': '200px',
+  'text-align': 'center',
+  'max-height': '160px',
+  'overflow-y': 'scroll',
+  'position': 'absolute',
+  'bottom': '0px',
+  'display': 'inline-block'
 };
 
 /**
@@ -94,7 +94,7 @@ export class DragReceiverLogic extends AbstractLogic {
       this.container.append(append_element);
 
       // scroll the container to the bottom
-      this.container.scrollTop(this.container[0].scrollHeight); 
+      this.container.scrollTop(this.container[0].scrollHeight);
 
       // get the bounding rectangle of the appended element
       let rect = append_element[0].getBoundingClientRect();

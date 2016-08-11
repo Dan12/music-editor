@@ -5,8 +5,8 @@ import { AbstractLogic } from '../../abstracts/logic';
  * @for MainContainerLogic
  */
 const main_container_style = {
-'width': '100%',
-'height': '100%'
+  'width': '100%',
+  'height': '100%'
 };
 
 /**

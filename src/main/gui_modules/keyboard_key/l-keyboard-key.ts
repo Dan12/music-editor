@@ -6,12 +6,12 @@ import { AbstractLogic } from '../../abstracts/logic';
  * @for KeyboardKeyLogic
  */
 const keyboard_key_style = {
-'margin': '0.5%',
-'background-color': 'lightgray',
-'border': '1px solid black',
-'border-radius': '2px',
-'display': 'inline-block',
-'cursor': 'pointer'
+  'margin': '0.5%',
+  'background-color': 'lightgray',
+  'border': '1px solid black',
+  'border-radius': '2px',
+  'display': 'inline-block',
+  'cursor': 'pointer'
 };
 
 /**

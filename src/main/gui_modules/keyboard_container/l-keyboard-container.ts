@@ -6,12 +6,11 @@ import { AbstractLogic } from '../../abstracts/logic';
  * @for KeyboardContainerLogic
  */
 const keyboard_container_style = {
-'height': '85%',
-'width': '79%',
-'display': 'inline-block',
-'position': 'absolute',
-'text-align': 'center',
-'padding': '3%'
+  'height': '85%',
+  'display': 'inline-block',
+  'position': 'absolute',
+  'text-align': 'center',
+  'padding': '3% 0'
 };
 
 /**
@@ -26,6 +25,16 @@ export class KeyboardContainerLogic extends AbstractLogic {
 
   constructor(container: JQuery) {
     super(container, keyboard_container_style);
+
+    this.container.css('top', this.visibility ? '15%' : '-100%');
+
+    this.setWidth();
+    $(window).resize(this.setWidth);
+  }
+
+  public setWidth = (): void  => {
+    let left = this.container[0].getBoundingClientRect().left;
+    this.container.animate({'width': (window.innerWidth - left) + 'px'}, 100);
   }
 
   /**

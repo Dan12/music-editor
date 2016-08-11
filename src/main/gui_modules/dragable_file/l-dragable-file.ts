@@ -11,12 +11,12 @@ import { EventManager } from '../../utils/event-manager';
  * @for DragableFileLogic
  */
 const dragable_file_style = {
-'background-color': 'white',
-'margin': '8px',
-'padding': '5px 8px',
-'font-size': '100%',
-'border-radius': '2px',
-'overflow': 'hidden',
+  'background-color': 'white',
+  'margin': '8px',
+  'padding': '5px 8px',
+  'font-size': '100%',
+  'border-radius': '2px',
+  'overflow': 'hidden'
 };
 
 /**

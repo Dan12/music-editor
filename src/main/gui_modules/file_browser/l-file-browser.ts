@@ -6,13 +6,13 @@ import { AbstractLogic } from '../../abstracts/logic';
  * @for FileBrowserLogic
  */
 const file_browser_style = {
-'width': '0',
-'height': '85%',
-'position': 'relative',
-'padding': '0',
-'background-color': 'rgb(220,220,220)',
-'overflow-y': 'scroll',
-'display': 'inline-block',
+  'width': '0',
+  'height': '85%',
+  'position': 'relative',
+  'padding': '0',
+  'background-color': 'rgb(220,220,220)',
+  'overflow-y': 'scroll',
+  'display': 'inline-block'
 };
 
 /**
@@ -38,10 +38,7 @@ export class FileBrowserLogic extends AbstractLogic {
    */
   public toggleVisibility = () => {
     this.visibility = !this.visibility;
-    if (this.visibility) {
-      this.container.animate({ 'width': this.width}, this.animation_duration);
-    } else {
-      this.container.animate({ 'width': '0px'}, this.animation_duration);
-    }
+    let width_to = this.visibility ? this.width : '0px';
+    this.container.animate({ 'width': width_to}, this.animation_duration, () => { $(window).resize() });
   }
 }

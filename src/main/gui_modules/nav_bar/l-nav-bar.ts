@@ -9,9 +9,9 @@ import { ToggleKeyboardEvent } from '../../events/toggle-keyboard';
  * @for NavBarLogic
  */
 const nav_bar_style = {
-'background-color': 'rgb(230,230,230)',
-'width': '100%',
-'height': '15%'
+  'background-color': 'rgb(230,230,230)',
+  'width': '100%',
+  'height': '15%'
 };
 
 /**

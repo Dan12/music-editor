@@ -2,6 +2,7 @@ import { AbstractFacade } from '../../abstracts/facade';
 import { KeyboardContainerLogic } from './l-keyboard-container';
 import { EventManager } from '../../utils/event-manager';
 import { ToggleKeyboardEvent } from '../../events/toggle-keyboard';
+import { ToggleFileBrowserEvent } from '../../events/toggle-file-browser';
 
 import { KeyboardKeyFacade } from '../keyboard_key/f-keyboard-key';
 
