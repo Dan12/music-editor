@@ -16,14 +16,21 @@ width: 100vw; \
 height: 100vh; \
 ';
 
+function setStyles(): void {
+  $('body').css({'background-color': Color.primary(), 'color': Color.secondary()});
+
+  $('button').css('background-color', Color.gray2());
+  $('button').hover(function(){$(this).css('background-color', Color.ternary()); });
+  $('button').mouseleave(function(){$(this).css('background-color', Color.gray2()); });
+}
+
 $(document).ready(function(){
   $('body').append(`<div id="main_area" style="${main_area_style}"></div>`);
-  $('body').css({'background-color': Color.primary(), 'color': Color.secondary()});
-  $('button').css('background-color', Color.gray1());
-  $('button:hover').css('background-color', Color.ternary());
 
   registerEvents();
 
   let main_container = new MainContainerFacade($('#main_area'));
   EventManager.checkEvents();
+
+  setStyles();
 });

@@ -3,13 +3,14 @@ import { AbstractLogic } from '../../abstracts/logic';
 import { EventManager } from '../../utils/event-manager';
 import { ToggleFileBrowserEvent } from '../../events/toggle-file-browser';
 import { ToggleKeyboardEvent } from '../../events/toggle-keyboard';
+import { Color } from '../../utils/color';
 
 /**
  * @property nav_bar_style
  * @for NavBarLogic
  */
 const nav_bar_style = {
-  'background-color': 'rgb(230,230,230)',
+  'background-color': Color.gray1(),
   'width': '100%',
   'height': '15%'
 };

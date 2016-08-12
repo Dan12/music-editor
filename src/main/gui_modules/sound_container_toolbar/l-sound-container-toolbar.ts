@@ -1,5 +1,6 @@
 import { AbstractLogic } from '../../abstracts/logic';
 import { Payload } from '../../events/key-selected';
+import { Color } from '../../utils/color';
 
 /**
  * --- optional, some style ---
@@ -7,7 +8,7 @@ import { Payload } from '../../events/key-selected';
  * @for SoundContainerToolbarLogic
  */
 const sound_container_toolbar_style = {
-  'background-color': 'rgb(150,150,150)',
+  'background-color': Color.gray2(),
   'position': 'relative',
   'height': '18%',
   'width': '100%',

@@ -1,6 +1,7 @@
 import { AbstractLogic } from '../../abstracts/logic';
 import { KeySelectedEvent } from '../../events/key-selected';
 import { EventManager } from '../../utils/event-manager';
+import { Color } from '../../utils/color';
 
 /**
  * --- optional, some style ---
@@ -9,7 +10,7 @@ import { EventManager } from '../../utils/event-manager';
  */
 const keyboard_key_style = {
   'margin': '0.5%',
-  'background-color': 'lightgray',
+  'background-color': Color.gray1(),
   'border': '1px solid black',
   'border-radius': '2px',
   'display': 'inline-block',

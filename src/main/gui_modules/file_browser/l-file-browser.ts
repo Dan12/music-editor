@@ -11,7 +11,7 @@ const file_browser_style = {
   'height': '85%',
   'position': 'relative',
   'padding': '0',
-  'background-color': Color.gray1(),
+  'background-color': Color.gray2(),
   'overflow-y': 'scroll',
   'display': 'inline-block',
   'float': 'left'
