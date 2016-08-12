@@ -1,4 +1,6 @@
 import { AbstractLogic } from '../../abstracts/logic';
+import { KeySelectedEvent } from '../../events/key-selected';
+import { EventManager } from '../../utils/event-manager';
 
 /**
  * --- optional, some style ---
@@ -23,11 +25,19 @@ export class KeyboardKeyLogic extends AbstractLogic {
 
   private dim_percentage = 0.05;
 
-  constructor(container: JQuery) {
+  public id: string = undefined;
+
+  constructor(container: JQuery, id: string) {
     super(container, keyboard_key_style);
 
     this.setDimensions();
     $(window).resize(this.setDimensions);
+
+    this.id = id;
+
+    this.container.click(() => {
+      EventManager.fireEvent((new KeySelectedEvent).setPayload({selected: true, key: this}));
+    });
   }
 
   private setDimensions = () => {

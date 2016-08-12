@@ -1,4 +1,5 @@
 import { AbstractLogic } from '../../abstracts/logic';
+import { Color } from '../../utils/color';
 
 /**
  * --- optional, some style ---
@@ -10,7 +11,7 @@ const file_browser_style = {
   'height': '85%',
   'position': 'relative',
   'padding': '0',
-  'background-color': 'rgb(220,220,220)',
+  'background-color': Color.gray1(),
   'overflow-y': 'scroll',
   'display': 'inline-block',
   'float': 'left'
@@ -40,6 +41,6 @@ export class FileBrowserLogic extends AbstractLogic {
   public toggleVisibility = () => {
     this.visibility = !this.visibility;
     let width_to = this.visibility ? this.width : '0px';
-    this.container.animate({ 'width': width_to}, this.animation_duration, () => { $(window).resize() });
+    this.container.animate({'width': width_to}, this.animation_duration, () => { $(window).resize(); });
   }
 }

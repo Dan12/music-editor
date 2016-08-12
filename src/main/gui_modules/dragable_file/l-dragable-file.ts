@@ -2,6 +2,7 @@ import { AbstractLogic } from '../../abstracts/logic';
 import { ReleaseFileEvent} from '../../events/release-file';
 import { DragFileEvent } from '../../events/drag-file';
 import { EventManager } from '../../utils/event-manager';
+import { Color } from '../../utils/color';
 
 // TODO: multiple file select, own standalone object?
 
@@ -11,7 +12,7 @@ import { EventManager } from '../../utils/event-manager';
  * @for DragableFileLogic
  */
 const dragable_file_style = {
-  'background-color': 'white',
+  'background-color': Color.primary(),
   'margin': '8px',
   'padding': '5px 8px',
   'font-size': '100%',
@@ -69,7 +70,7 @@ export class DragableFileLogic extends AbstractLogic {
       $('body').append(drag_element);
 
       // listen for mouse move on the body and move the element into that position
-      function bodyMove(event: JQueryMouseEventObject){
+      function bodyMove(event: JQueryMouseEventObject) {
         let x = event.pageX - drag_left_offset;
         let y = event.pageY - drag_top_offset;
         drag_element.css({'top': y + 'px', 'left': x + 'px'});

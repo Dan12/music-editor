@@ -13,10 +13,8 @@ export class KeyboardKeyFacade extends AbstractFacade {
   constructor(parent: JQuery, id: string) {
     super('keyboard_key', parent);
 
-    let temp_logic = new KeyboardKeyLogic(this.container);
-
     // initialize this facade's enclosed classes
-    this.initializeLogic(new KeyboardKeyLogic(this.container));
+    this.initializeLogic(new KeyboardKeyLogic(this.container, id));
 
     this.container.html(id);
   }

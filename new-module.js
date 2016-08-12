@@ -36,8 +36,6 @@ export class ${all_caps}Facade extends AbstractFacade {
   constructor(parent: JQuery) {
     super('${underscores}', parent);
 
-    let temp_logic = new ${all_caps}Logic(this.container);
-
     // initialize this facade's enclosed classes
     this.initializeLogic(new ${all_caps}Logic(this.container));
   }

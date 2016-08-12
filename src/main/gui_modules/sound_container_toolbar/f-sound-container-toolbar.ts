@@ -1,5 +1,7 @@
 import { AbstractFacade } from '../../abstracts/facade';
 import { SoundContainerToolbarLogic } from './l-sound-container-toolbar';
+import { EventManager } from '../../utils/event-manager';
+import { KeySelectedEvent } from '../../events/key-selected';
 
 /**
  * The facade for sound container toolbar.
@@ -13,10 +15,10 @@ export class SoundContainerToolbarFacade extends AbstractFacade {
   constructor(parent: JQuery) {
     super('sound_container_toolbar', parent);
 
-    let temp_logic = new SoundContainerToolbarLogic(this.container);
-
     // initialize this facade's enclosed classes
     this.initializeLogic(new SoundContainerToolbarLogic(this.container));
+
+    EventManager.subscribe(new KeySelectedEvent(this.logicClass().keySelected));
   }
 
   /**
