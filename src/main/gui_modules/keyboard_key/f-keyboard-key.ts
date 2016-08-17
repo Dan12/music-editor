@@ -16,7 +16,11 @@ export class KeyboardKeyFacade extends AbstractFacade {
     // initialize this facade's enclosed classes
     this.initializeLogic(new KeyboardKeyLogic(this.container, id));
 
-    this.container.html(id);
+    this.container.html(`<div class="vertical_align">${id}</div>`);
+  }
+
+  public click(event: JQueryMouseEventObject) {
+    return true;
   }
 
   /**

@@ -67,5 +67,19 @@ export abstract class AbstractFacade {
     this.gui_children.push(facade);
   }
 
+  /**
+   * Propegates a click event down the gui heirarchy
+   * @method click
+   * @param event {JQueryMouseEventObject} the click event object
+   * @return boolean
+   */
+  public click(event: JQueryMouseEventObject): boolean {
+    for (let i = 0; i < this.gui_children.length; i++) {
+      if (this.gui_children[0].click(event))
+        return true;
+    }
+    return false;
+  }
+
   protected abstract logicClass(): any;
 }

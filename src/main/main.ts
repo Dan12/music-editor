@@ -10,6 +10,7 @@ import { MainContainerFacade } from './gui_modules/main_container/f-main-contain
 import { EventManager } from './utils/event-manager';
 import { registerEvents } from './events/register-events';
 import { Color } from './utils/color';
+import { InputEventManager } from './utils/input-event-manager';
 
 const main_area_style = '\
 width: 100vw; \
@@ -27,10 +28,14 @@ function setStyles(): void {
 $(document).ready(function(){
   $('body').append(`<div id="main_area" style="${main_area_style}"></div>`);
 
+  $(window).click(function(){ console.log('here'); });
+
   registerEvents();
 
   let main_container = new MainContainerFacade($('#main_area'));
   EventManager.checkEvents();
+
+  InputEventManager.initialize(main_container);
 
   setStyles();
 });

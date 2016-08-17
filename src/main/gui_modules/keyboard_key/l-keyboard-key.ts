@@ -9,12 +9,13 @@ import { Color } from '../../utils/color';
  * @for KeyboardKeyLogic
  */
 const keyboard_key_style = {
-  'margin': '0.5%',
+  'margin': '0.3%',
   'background-color': Color.gray1(),
   'border': '1px solid black',
-  'border-radius': '2px',
+  'border-radius': '4px',
   'display': 'inline-block',
-  'cursor': 'pointer'
+  'cursor': 'pointer',
+  'text-align': 'center'
 };
 
 /**
