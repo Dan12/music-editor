@@ -12,3 +12,11 @@ export function intersectMouse(r1: ClientRect, e: JQueryMouseEventObject) {
            r2.top > r1.bottom ||
            r2.bottom < r1.top);
 }
+
+// TODO: does array indexof exist?
+export function numInArray(num: number, array: number[]): number {
+  for (let i = 0; i < array.length; i++)
+    if (array[i] === num)
+      return i;
+  return -1;
+}

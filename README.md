@@ -39,17 +39,21 @@
 ### Security
 - legitimate security concerns about user generated content
 - xss
+- uploaded zip files contain malicious content?
 
 ### Creation Tool
-- can either recommend youtube videos with project files or cut them up with tool (need dropbox api key, trust (how)):
+- can either recommend youtube videos with project files or cut them up with tool
 - upload long segments
 - cut them up, show the waveform (fine tuning), ask to click on launchpad button, client side html and webaudio
 - transfer to database
-	- dropbox: need api key to post sounds to dropbox, create layout file with urls
-	- database: save files in database, create layout file with local urls
+	- database: zip files and transfer zip to database, store in secure way
+		- organized like sounds/chain[i]/[section][number].mp3
 
 ### Create a new Module
-- type node new_module.js when creating a new module
+- type node new-module.js when creating a new module
+
+### Creating a new event
+- type node new-event.js
 
 ### GUI
 - Use a canvas/html hybrid application

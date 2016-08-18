@@ -18,15 +18,34 @@ const file_browser_style = {
 };
 
 /**
- * --- some description ---
+ * The file browser container
  * @class FileBrowserLogic
  * @constructor
  */
 export class FileBrowserLogic extends AbstractLogic {
 
+  /**
+   * flag to check if this object is visible or not
+   * @property visibility
+   * @type boolean
+   * @default false
+   */
   private visibility = false;
+
+  /**
+   * the duration in milliseconds for an animation
+   * @property animation_duration
+   * @type number
+   * @default 200
+   */
   private animation_duration = 200;
 
+  /**
+   * the width of this element when visible
+   * @property width
+   * @type string
+   * @default '15%'
+   */
   public width = '15%';
 
   constructor(container: JQuery) {
