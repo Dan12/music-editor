@@ -3,6 +3,8 @@ import { NavBarLogic } from './l-nav-bar';
 
 import { EventManager } from '../../utils/event-manager';
 
+import { intersectMouse } from '../../utils/math';
+
 export class NavBarFacade extends AbstractFacade {
 
   constructor(parent: JQuery) {
@@ -12,6 +14,10 @@ export class NavBarFacade extends AbstractFacade {
 
     // initialize event emittors for the buttons that were just added
     this.logicClass().initializeEmitters();
+  }
+
+  public mouseEvent(event: JQueryMouseEventObject): boolean {
+    return intersectMouse(this.container[0].getBoundingClientRect(), event);
   }
 
   /**

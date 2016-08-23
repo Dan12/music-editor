@@ -14,7 +14,7 @@ const keyboard_container_style = {
 };
 
 /**
- * --- some description ---
+ * The logic for the keyboard container, controlls visibility toggle
  * @class KeyboardContainerLogic
  * @constructor
  */

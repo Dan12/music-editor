@@ -69,13 +69,13 @@ export abstract class AbstractFacade {
 
   /**
    * Propegates a click event down the gui heirarchy
-   * @method click
-   * @param event {JQueryMouseEventObject} the click event object
+   * @method mouseEvent
+   * @param event {JQueryEventObject} the click event object
    * @return boolean
    */
-  public click(event: JQueryMouseEventObject): boolean {
+  public mouseEvent(event: JQueryMouseEventObject): boolean {
     for (let i = 0; i < this.gui_children.length; i++) {
-      if (this.gui_children[i].click(event))
+      if (this.gui_children[i].mouseEvent(event))
         return true;
     }
     return false;
@@ -83,27 +83,13 @@ export abstract class AbstractFacade {
 
   /**
    * Propegates a click event down the gui heirarchy
-   * @method click
+   * @method keyEvent
    * @param event {JQueryMouseEventObject} the click event object
    * @return boolean
    */
-  public keydown(event: JQueryKeyEventObject): boolean {
+  public keyEvent(event: JQueryKeyEventObject): boolean {
     for (let i = 0; i < this.gui_children.length; i++) {
-      if (this.gui_children[i].keydown(event))
-        return true;
-    }
-    return false;
-  }
-
-  /**
-   * Propegates a click event down the gui heirarchy
-   * @method click
-   * @param event {JQueryMouseEventObject} the click event object
-   * @return boolean
-   */
-  public keyup(event: JQueryKeyEventObject): boolean {
-    for (let i = 0; i < this.gui_children.length; i++) {
-      if (this.gui_children[i].keyup(event))
+      if (this.gui_children[i].keyEvent(event))
         return true;
     }
     return false;

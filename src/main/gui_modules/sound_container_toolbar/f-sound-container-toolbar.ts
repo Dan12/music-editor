@@ -3,6 +3,8 @@ import { SoundContainerToolbarLogic } from './l-sound-container-toolbar';
 import { EventManager } from '../../utils/event-manager';
 import { KeySelectedEvent } from '../../events/key-selected';
 
+import { DragReceiverFacade } from '../drag_receiver/f-drag-receiver';
+
 /**
  * The facade for sound container toolbar.
  * --- Some description here ---
@@ -17,6 +19,8 @@ export class SoundContainerToolbarFacade extends AbstractFacade {
 
     // initialize this facade's enclosed classes
     this.initializeLogic(new SoundContainerToolbarLogic(this.container));
+
+    this.addGuiChild(new DragReceiverFacade(this.container));
 
     EventManager.subscribe(new KeySelectedEvent(this.logicClass().keySelected));
   }

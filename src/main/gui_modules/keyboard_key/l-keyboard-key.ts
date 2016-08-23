@@ -20,45 +20,78 @@ const keyboard_key_style = {
 };
 
 /**
- * --- some description ---
+ * the percentage of the width that this object takes up
+ * @property dim_percentage
+ * @for KeyboardKeyLogic
+ * @type number
+ * @default 0.05
+ */
+const dim_percentage = 0.05;
+/**
+ * the percentage of this objects width that is this objects font size
+ * @property font_percentage
+ * @for KeyboardKeyLogic
+ * @type number
+ * @default 0.68
+ */
+const font_percentage = 0.68;
+/**
+ * this objects default highlight color
+ * @property font_percentage
+ * @for KeyboardKeyLogic
+ * @type number
+ * @default 0.68
+ */
+const default_color = 'rgb(250,150,0)';
+
+/**
+ * The logic for a key
  * @class KeyboardKeyLogic
  * @constructor
  */
 export class KeyboardKeyLogic extends AbstractLogic {
 
-  private dim_percentage = 0.05;
-  private font_percentage = 0.68;
-  private default_color = 'rgb(250,150,0)';
-
-  public id: number = undefined;
+  public id: number = -1;
 
   constructor(container: JQuery, id: number) {
     super(container, keyboard_key_style);
 
+    this.id = id;
+
     this.setDimensions();
     $(window).resize(this.setDimensions);
-
-    this.id = id;
   }
 
+  /**
+   * highlight the key to show that the key was pressed
+   * @method keydown
+   */
   public keydown(): void {
-    console.log('down');
-    // this.container.animate({'background-color': this.default_color}, this.animation_duration);
-    this.container.css({'background-color': this.default_color});
+    this.container.css({'background-color': default_color});
   }
 
+  /**
+   * unhighlight the key to show that the key was released
+   * @method keydown
+   */
   public keyup(): void {
-    console.log('up');
-    // this.container.animate({'background-color': Color.primary()}, this.animation_duration);
     this.container.css({'background-color': Color.primary()});
   }
 
-  public click() {
+  /**
+   * fire the selected event for this key
+   * @method click
+   */
+  public click(): void {
     EventManager.fireEvent((new KeySelectedEvent).setPayload({selected: true, key: this}));
   }
 
-  private setDimensions = () => {
-    let dim = window.innerWidth * this.dim_percentage;
-    let tempvar = this.container.css({'width': dim + 'px', 'height': dim + 'px', 'font-size': (dim * this.font_percentage) + 'px'});
+  /**
+   * set this objects dimensions and font on initialize and resize
+   * @method setDimensions
+   */
+  private setDimensions = (): void => {
+    let dim = window.innerWidth * dim_percentage;
+    let tempvar = this.container.css({'width': dim + 'px', 'height': dim + 'px', 'font-size': (dim * font_percentage) + 'px'});
   }
 }

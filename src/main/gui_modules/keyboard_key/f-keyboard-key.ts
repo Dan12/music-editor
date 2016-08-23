@@ -5,7 +5,7 @@ import { intersectMouse } from '../../utils/math';
 
 /**
  * The facade for keyboard key.
- * --- Some description here ---
+ * A single html key for the keyboard
  * @class KeyboardKeyFacade
  * @constructor
  * @param parent {JQuery} the parent element for this object
@@ -21,21 +21,33 @@ export class KeyboardKeyFacade extends AbstractFacade {
     this.container.html(`<div class="vertical_align">${letterArray[id]}</div>`);
   }
 
-  public click(event: JQueryMouseEventObject) {
-    if (intersectMouse(this.container[0].getBoundingClientRect(), event)) {
-      this.logicClass().click();
-      return true;
+  /**
+   * override the facade click event, return true if this object is clicked
+   * @method click
+   * @param event {JQueryMouseEventObject} the mouse event
+   * @return boolean
+   */
+  public mouseEvent(event: JQueryMouseEventObject): boolean {
+    if (event.type === 'click') {
+      if (intersectMouse(this.container[0].getBoundingClientRect(), event)) {
+        this.logicClass().click();
+        return true;
+      }
     }
     return false;
   }
 
-  public keydown(event: JQueryKeyEventObject): boolean {
-    this.logicClass().keydown();
-    return true;
-  }
-
-  public keyup(event: JQueryKeyEventObject): boolean {
-    this.logicClass().keyup();
+  /**
+   * overrides the facade keydown method
+   * @method keyEvent
+   * @param event {JQueryKeyEventObject} the key event
+   * @return boolean
+   */
+  public keyEvent(event: JQueryKeyEventObject): boolean {
+    if (event.type === 'keyup')
+      this.logicClass().keyup();
+    else if (event.type === 'keydown')
+      this.logicClass().keydown();
     return true;
   }
 

@@ -10,7 +10,7 @@ const drag_receiver_style = {
   'background-color': 'rgb(220,120,120)',
   'width': '200px',
   'text-align': 'center',
-  'max-height': '160px',
+  'max-height': '100%',
   'overflow-y': 'scroll',
   'position': 'absolute',
   'bottom': '0px',
@@ -27,7 +27,7 @@ export class DragReceiverLogic extends AbstractLogic {
   private dragging = false;
   private dragged_first = true;
 
-  public padding = 4;
+  public padding = 0;
 
   constructor(container: JQuery) {
     super(container, drag_receiver_style);

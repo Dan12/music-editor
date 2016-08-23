@@ -26,6 +26,7 @@ export class KeyboardContainerFacade extends AbstractFacade {
 
     EventManager.subscribe(new ToggleKeyboardEvent(this.logicClass().toggleVisibility));
 
+    // append each key to a specific row
     for (let r = 0; r < 4; r++) {
       let row = $(`<div id="row_${r}"></div>`);
       this.container.append(row);
@@ -36,19 +37,16 @@ export class KeyboardContainerFacade extends AbstractFacade {
     $('#row_0').css('margin-top', '1.5%');
   }
 
-  public keydown(event: JQueryKeyEventObject): boolean {
+  /**
+   * override the facade keydown event, returns true if this object captures the key event
+   * @method keyEvent
+   * @param event {JQueryKeyEventObject} the event object
+   * @return boolean
+   */
+  public keyEvent(event: JQueryKeyEventObject): boolean {
     let index = numInArray(event.keyCode, keycodeArray);
     if (index !== -1) {
-      this.gui_children[index].keydown(event);
-      return true;
-    }
-    return false;
-  }
-
-  public keyup(event: JQueryKeyEventObject): boolean {
-    let index = numInArray(event.keyCode, keycodeArray);
-    if (index !== -1) {
-      this.gui_children[index].keyup(event);
+      this.gui_children[index].keyEvent(event);
       return true;
     }
     return false;

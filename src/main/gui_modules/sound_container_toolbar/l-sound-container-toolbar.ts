@@ -3,26 +3,26 @@ import { Payload } from '../../events/key-selected';
 import { Color } from '../../utils/color';
 
 /**
- * --- optional, some style ---
+ * this elements style
  * @property sound_container_toolbar_style
  * @for SoundContainerToolbarLogic
  */
 const sound_container_toolbar_style = {
   'background-color': Color.gray2(),
   'position': 'relative',
-  'height': '18%',
+  'height': '25%',
   'width': '100%',
   'display': 'inline-block',
 };
 
 /**
- * --- some description ---
+ * The logic for the sound container toolbar
  * @class SoundContainerToolbarLogic
  * @constructor
  */
 export class SoundContainerToolbarLogic extends AbstractLogic {
 
-  private top =  '-17.9%';
+  private top =  '-24.9%';
 
   private id: JQuery = undefined;
 
