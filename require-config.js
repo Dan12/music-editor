@@ -9,4 +9,4 @@ requirejs.config({
 });
 
 // load test file relative to the base url
-requirejs(['main/main']);
+requirejs(['main2/main']);
