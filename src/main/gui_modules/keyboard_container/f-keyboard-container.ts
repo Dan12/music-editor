@@ -37,20 +37,20 @@ export class KeyboardContainerFacade extends AbstractFacade {
     $('#row_0').css('margin-top', '1.5%');
   }
 
-  /**
-   * override the facade keydown event, returns true if this object captures the key event
-   * @method keyEvent
-   * @param event {JQueryKeyEventObject} the event object
-   * @return boolean
-   */
-  public keyEvent(event: JQueryKeyEventObject): boolean {
-    let index = numInArray(event.keyCode, keycodeArray);
-    if (index !== -1) {
-      this.gui_children[index].keyEvent(event);
-      return true;
-    }
-    return false;
-  }
+  // /**
+  //  * override the facade keydown event, returns true if this object captures the key event
+  //  * @method keyEvent
+  //  * @param event {JQueryKeyEventObject} the event object
+  //  * @return boolean
+  //  */
+  // public keyEvent(event: JQueryKeyEventObject): boolean {
+  //   let index = numInArray(event.keyCode, keycodeArray);
+  //   if (index !== -1) {
+  //     this.gui_children[index].keyEvent(event);
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   /**
    * the way to access this class's _logic_class

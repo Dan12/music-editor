@@ -69,7 +69,6 @@ export class DragReceiverLogic extends AbstractLogic {
    */
   public dragableFileDragged = (obj: FilePayload): void => {
     if (
-        this.dragged_first &&
         this.dragging &&
         intersectRect(this.container[0].getBoundingClientRect(), obj.element[0].getBoundingClientRect())
     ) {

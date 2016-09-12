@@ -23,6 +23,8 @@ export class SoundContainerToolbarFacade extends AbstractFacade {
     this.addGuiChild(new DragReceiverFacade(this.container));
 
     EventManager.subscribe(new KeySelectedEvent(this.logicClass().keySelected));
+
+    this.container.click(function() { console.log('here'); return false; });
   }
 
   /**

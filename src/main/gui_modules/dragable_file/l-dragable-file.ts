@@ -87,6 +87,8 @@ export class DragableFileLogic extends AbstractLogic {
         $('body').unbind('mousemove', bodyMove);
       });
 
+      drag_element.click(function() {console.log('clicked')})
+
       // prevent highlighting on dragging
       event.preventDefault();
     });
