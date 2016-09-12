@@ -19,22 +19,15 @@ export class KeyboardKeyFacade extends AbstractFacade {
     this.initializeLogic(new KeyboardKeyLogic(this.container, id));
 
     this.container.html(`<div class="vertical_align">${letterArray[id]}</div>`);
-  }
 
-  /**
-   * override the facade click event, return true if this object is clicked
-   * @method click
-   * @param event {JQueryMouseEventObject} the mouse event
-   * @return boolean
-   */
-  public mouseEvent(event: JQueryMouseEventObject): boolean {
-    if (event.type === 'click') {
-      if (intersectMouse(this.container[0].getBoundingClientRect(), event)) {
-        this.logicClass().click();
-        return true;
-      }
-    }
-    return false;
+    this.container.click((event) => {
+      this.logicClass().click();
+      return false;
+    });
+
+    this.container.keyup((event) => {
+      console.log('keyup');
+    });
   }
 
   /**
