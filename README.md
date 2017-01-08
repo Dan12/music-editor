@@ -1,3 +1,6 @@
+# NOTICE:
+- I consider this project dead. The implementation got too out of hand and my strict conventions ended up hurting progress more that easing it. The new repo, keyboard editor, is trying to accomplish the same thing as this repo, but using a more functional programming approach.
+
 ### Overview
 - Music editor with a keyboard
 - Create songs and play back sections of the song with the keyboard
